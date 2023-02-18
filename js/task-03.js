@@ -1,32 +1,12 @@
-const images = [
-  {
-    url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'White and Black Long Fur Cat',
-  },
-  {
-    url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
-  },
-  {
-    url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Group of Horses Running',
-  },
-];
-const galleryList = document.querySelector(".gallery");
-galleryList.style.display = "flex";
-galleryList.style.flexWrap = "wrap";
-galleryList.style.gap = "15px"
-galleryList.style.listStyle = "none";
+function sortNames(names) {
+  const namesArray = names.split(','); // розділяємо рядок на масив імен за допомогою коми
+  const trimmedNamesArray = namesArray.map(name => name.trim()); // використовуємо метод trim() для видалення пробілів з кожного імені
+  const sortedNamesArray = trimmedNamesArray.sort(); // сортуємо масив імен за алфавітом
+  const sortedNamesString = sortedNamesArray.join(', '); // з'єднуємо імена назад у рядок, використовуючи кому та пробіл
 
-const galleryMarkup = images.map((image) => {
-  return `<li class="gallery__item"><img class="gallery__img" src="${image.url}" alt="${image.alt}" width = 400 height = 300></li>`;
+  return sortedNamesString;
 }
-);
-console.log(galleryList.children);
-galleryList.insertAdjacentHTML("afterbegin", galleryMarkup.join(""));
-const imgList = document.querySelectorAll("img")
-console.log(imgList);
-imgList.forEach(img => {
-  img.style.objectFit = "cover";
-  console.log(img);
-});
+
+const names = 'Alex,    Orysia, Misha,    Ira     , Paul';
+const newNames = sortNames(names);
+console.log(newNames); // 'Alex, Ira, Misha, Orysia, Paul'
