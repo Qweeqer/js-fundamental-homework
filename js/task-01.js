@@ -1,16 +1,17 @@
-const totalCategories = document.querySelectorAll(".item");
 
-console.log(`Number of categories: ${totalCategories.length}`);
+const arr = [5,3,4,5,6,7,3,1,1,2,2,3,5,6,4,7,39,8,5,44,555];
+// console.log(arr2) ; // [5,3,4,6,7]
+function compact(arr) {
+  const uniqueValues = [];
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (!uniqueValues.includes(arr[i])) {
+      uniqueValues.push(arr[i]);
+    }
+  }
+  
+  return uniqueValues;
+}
+const uniqueValues = compact(arr);
 
-const categoriesAll = totalCategories.forEach(el => {
-  console.log(`Category: ${el.firstElementChild.textContent}
-Elements: ${el.lastElementChild.children.length}`)
-});
-
-// <-----------2----------->
-// const categoriesAll = [...totalCategories]
-//   .map(categories => `Category: ${categories.children[0].textContent}
-// Elements: ${categories.children[1].children.length}`
-//   )
-//   .join("\n");
-// console.log(categoriesAll);
+console.log('uniqueValues', uniqueValues);
