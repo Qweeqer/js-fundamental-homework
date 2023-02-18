@@ -6,43 +6,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task 1</title>
     <link rel="stylesheet" href="css/common.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        
+      }
+    
+      label {
+        display: flex;
+    justify-content: center;
+        margin-bottom: 5px;
+
+      }
+    
+      input[type="text"] {
+        padding: 5px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+      #inputForm{
+        display: flex;
+    justify-content: center;
+      }
+    
+      input[type="button"] {
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    
+      input[type="button"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
   </head>
   <body>
     <p><a href="index.html">Go back</a></p>
+    <p>1) Написати функцію compact() яка має приймати на вхід масив, <br>
+      а на вихід має повертати значення нового масиву без
+    повторень.<br>
+    приклад:<br>
+    const arr = [5, 3, 4, 5,6,7,3];<br>
+    const arr2 = compact(arr);<br>
+    console.log(arr2) ; // [5,3,4,6,7]</p>
+    <!-- <h1>Values in Array</h1>
+    <ul id="valuesList"></ul>
+    <h1>Unique Values in Array</h1>
+    <ul id="uniqueValuesList"></ul>
+    <script>
+      const arr = [5, 3, 4, 5, 6, 7, 3, 1, 1, 2, 2, 3, 5, 6, 4, 7, 39, 8, 5, 44, 555];
 
-    <ul id="categories">
-      <li class="item">
-        <h2>Animals</h2>
+      function compact(arr) {
+        const uniqueValues = [];
 
-        <ul>
-          <li>Cat</li>
-          <li>Hamster</li>
-          <li>Horse</li>
-          <li>Parrot</li>
-        </ul>
-      </li>
-      <li class="item">
-        <h2>Products</h2>
+        for (let i = 0; i < arr.length; i++) {
+          if (!uniqueValues.includes(arr[i])) {
+            uniqueValues.push(arr[i]);
+          }
+        }
 
-        <ul>
-          <li>Bread</li>
-          <li>Prasley</li>
-          <li>Cheese</li>
-        </ul>
-      </li>
-      <li class="item">
-        <h2>Technologies</h2>
+        return uniqueValues;
+      }
 
-        <ul>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>JavaScript</li>
-          <li>React</li>
-          <li>Node.js</li>
-        </ul>
-      </li>
-    </ul>
+      const uniqueValues = compact(arr);
 
+      console.log('uniqueValues', uniqueValues);
+
+      const valuesElement = document.getElementById("valuesList");
+
+      for (let i = 0; i < arr.length; i++) {
+        const valuesItem = document.createElement("li");
+        valuesItem.innerText = arr[i];
+        valuesElement.appendChild(valuesItem);
+      }
+      const uniqueValuesElement = document.getElementById("uniqueValuesList");
+      for (let i = 0; i < uniqueValues.length; i++) {
+          const listItem = document.createElement("li");
+          listItem.innerText = uniqueValues[i];
+          uniqueValuesElement.appendChild(listItem);
+        }
+
+    </script> -->
+    <h1>Unique Values</h1>
+    <label for="numbers">Enter a comma-separated list of numbers:</label>
+    <div id="inputForm">
+    <input type="text" id="numbers" placeholder="5,3,4,5,6,7,3,1,1,2,2,3,5,6,4,7,39,8,5,44,555">
+    <input type="button" value="Get Unique Values" onclick="getUniqueValues()">
+    </div>
+    <p id="result"></p>
+    <script>
+      function getUniqueValues() {
+        const input = document.getElementById('numbers').value;
+        const arr = input.split(',').map(Number);
+        const uniqueValues = compact(arr);
+        document.getElementById('result').textContent = `Unique Values: ${uniqueValues}`;
+      }
+
+      function compact(arr) {
+        const uniqueValues = [];
+
+        for (let i = 0; i < arr.length; i++) {
+          if (!uniqueValues.includes(arr[i])) {
+            uniqueValues.push(arr[i]);
+          }
+        }
+
+        return uniqueValues;
+      }
+</script>
     <script src="js/task-01.js" type="module"></script>
   </body>
 </html>
