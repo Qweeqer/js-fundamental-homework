@@ -1,22 +1,20 @@
-let counterValue = 0;
+let arr = [
+  { name: 'Misha Klym', age: 2 },
+  { name: 'Sam Winchester', age: 5 },
+  { name: 'Jordan Peterson', age: 43 },
+  { name: 'John Wayne', age: 17 },
+  { name: 'Stan Lee', age: 22 },
+  { name: 'John Smith', age: 40 },
+  { name: 'John Young', age: 11 },
+  { name: 'Jasmyn Rock', age: 32 },
+  { name: 'Sara Conor', age: 23 },
+  { name: 'Amelia Arhard', age: 16 },
+];
 
-const decrementButton = document.querySelector(`[data-action = "decrement"]`)
-// console.log(decrementButton);
-const incrementButton = document.querySelector(`[data-action = "increment"]`)
-// console.log(incrementButton);
-const value = document.querySelector(`#value`)
+let newArray = arr.filter(obj => obj.age > 18);
 
-const decrValue = () =>  {
-    counterValue -= 1
-    value.textContent = counterValue;
-    console.log(counterValue);
-};
-decrementButton.addEventListener('click', decrValue);
-
-const incrValue = () =>  {
-    counterValue += 1;
-    value.textContent = counterValue;
-    console.log(counterValue);
-};
-incrementButton.addEventListener('click', incrValue);
-
+console.log(newArray);
+// [ { name: 'Stan Lee', age: 22 },
+//   { name: 'John Smith', age: '40' },
+//   { name: 'Jasmyn Rock', age: '32' },
+//   { name: 'Sara Conor', age: '23' }]
