@@ -6,11 +6,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Task 3</title>
     <link rel="stylesheet" href="css/common.css" />
+    <style>
+      label {
+        display: block;
+        margin-bottom: 0.5em;
+      }
+    
+      textarea {
+        width: 100%;
+        height: 10em;
+        font-size: 20px;
+      }
+      #sortedNames {
+        background-color: blueviolet;
+        font-size: 35px;
+    color: white;
+      }
+    </style>
   </head>
   <body>
     <p><a href="index.html">Go back</a></p>
 
-    <ul class="gallery"></ul>
+    <p>3) Створити функцію, яка використовує метод trim() для рядків. Дана функція має брати на вхід рядок із іменами, та
+    сортувати їх по алфавіту, але між іменами може бути багато пробелів(функція має їх забирати)
+    let names = "Alex, Orysia, Misha, Ira , Paul";
+    let newNames = sortNames(names);
+    console.log(newNames); // 'Alex, Ira, Misha, Orysia, Paul'</p>
+    <h1>Sort Names</h1>
+    <form id="namesForm">
+      <label for="names">Enter a comma-separated list of names:</label>
+      <textarea id="names" name="names" required></textarea>
+    
+      <button type="submit">Sort Names</button>
+    </form>
+    
+    <p id="sortedNames"></p>
+    
+    <script>
+      function sortNames(names) {
+        const namesArray = names.split(",");
+        const trimmedNamesArray = namesArray.map((name) => name.trim());
+        const sortedNamesArray = trimmedNamesArray.sort();
+        const sortedNamesString = sortedNamesArray.join(", ");
+
+        return sortedNamesString;
+      }
+
+      const namesForm = document.getElementById("namesForm");
+      const sortedNames = document.getElementById("sortedNames");
+
+      namesForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const namesTextarea = document.getElementById("names");
+        const names = namesTextarea.value;
+
+        const newNames = sortNames(names);
+
+        sortedNames.innerText = newNames;
+      });
+    </script>
 
     <script src="js/task-03.js" type="module"></script>
   </body>
