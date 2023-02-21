@@ -16,6 +16,8 @@ function checkCredentials(username, password) {
   }
   console.log('Логін або Пароль не вірний');
 }
+
 console.log(checkCredentials('user2', 'pass1'));
+console.log(checkCredentials('user1', 'pass1'));
 
 
