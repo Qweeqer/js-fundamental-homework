@@ -1,3 +1,9 @@
+:root {
+  --primary: #25abd9;
+  --primary-dark: #2090b7;
+  --primary-hover: #1e431f;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -79,13 +85,13 @@ ul li a {
   transition: background-color 0.3s ease;
 }
 
-ul li a:hover {
+/* ul li a:hover {
   background-color: #ccc; 
-}
+} */
 a.button {
   display: inline-block;
   padding: 10px;
-  background-color: #7409e0;
+  /* background-color: #7409e0; */
   border: none;
   color: #fff;
   text-align: center;
@@ -99,4 +105,33 @@ a.button {
 
 a.button:hover {
   background-color: #3e8e41;
+  box-shadow: 0 6px 0 var(--primary-hover), 0 5px 15px -4px #000;
+}
+.button {
+  background: var(--primary);
+  border: 0;
+  border-radius: 5px;
+  box-shadow: 0 6px 0 var(--primary-dark), 0 5px 15px -4px #000;
+  color: #fff;
+  cursor: pointer;
+  font-family: roboto;
+  font-size: 20px;
+  font-weight: 800;
+  height: 50px;
+  padding: 5px;
+  text-transform: uppercase;
+  transition: box-shadow 0.2s ease-in-out, margin-top 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+  width: 150px;
+}
+
+.button:hover,
+.button:focus {
+  opacity: 0.9;
+  outline: 0;
+}
+
+.button:active {
+  box-shadow: none;
+  margin-top: 6px;
 }
