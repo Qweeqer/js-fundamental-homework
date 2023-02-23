@@ -92,29 +92,38 @@
     </div>
 
     <script>
-      function getFullName(firstName, lastName, transformFunc = null) {
-        let fullName = `${firstName} ${lastName}`.trim(); // видаляє пробіли з початку і кінця рядка
+function getFullName(firstName, lastName, transformFunc = null) {
+  let fullName = `${firstName.trim()} ${lastName.trim()}`;
 
-        fullName = fullName.replace(/\s+/g, ' '); // замінює послідовності пробілів на один пробіл
+  fullName = fullName.replace(/\s+/g, ' ');
 
-        if (transformFunc) {
-          switch (transformFunc) {
-            case 'uppercase':
-              fullName = fullName.toUpperCase();
-              break;
-            case 'lowercase':
-              fullName = fullName.toLowerCase();
-              break;
-            case 'capitalize':
-              fullName = fullName.replace(/\b\w/g, firstLetter => firstLetter.toUpperCase());
-              break;
-            default:
-              console.log('Invalid transform function');
-          }
-        }
+  if (transformFunc) {
+    switch (transformFunc) {
+      case 'uppercase':
+        fullName = fullName.toUpperCase();
+        break;
+      case 'lowercase':
+        fullName = fullName.toLowerCase();
+        break;
+      case 'capitalize':
+        const capitalizeWord = word => {
+          return word
+            .trim()
+            .split(' ')
+            .map(wordName => wordName.charAt(0).toUpperCase() + wordName.slice(1).toLowerCase())
+            .join(' ');
+        };
+        firstName = capitalizeWord(firstName);
+        lastName = capitalizeWord(lastName);
+        fullName = `${firstName} ${lastName}`;
+        break;
+      default:
+        console.log('Invalid transform function');
+    }
+  }
 
-        return fullName;
-      }
+  return fullName;
+}
 
       const firstNameInput = document.querySelector('#firstName');
       const lastNameInput = document.querySelector('#lastName');
