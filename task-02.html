@@ -54,14 +54,18 @@
 
     <script>
       function createArray(start, end) {
-        const arr = [];
-
-        for (let i = start; i <= end; i++) {
-          arr.push(i);
-        }
-
-        return arr;
-      }
+  const arr = [];
+  if (start <= end) {
+    for (let i = start; i <= end; i++) {
+      arr.push(i);
+    }
+  } else {
+    for (let i = start; i >= end; i--) {
+      arr.push(i);
+    }
+  }
+  return arr;
+}
 
       const arrayForm = document.getElementById('arrayForm');
       const arrayList = document.getElementById('arrayList');
