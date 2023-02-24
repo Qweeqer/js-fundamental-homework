@@ -10,3 +10,19 @@ function sortNames(names) {
 const names = 'Alex,    Orysia, Misha,    Ira     , Paul';
 const newNames = sortNames(names);
 console.log(newNames); // 'Alex, Ira, Misha, Orysia, Paul'
+
+//----Варіант Більш короткого запису--//
+
+// function sortNames(names) {
+//   const namesArray = names
+//     .split(',')
+//     .map(name => name.trim())
+//     .sort()
+//     .join(', '); 
+
+//   return namesArray;
+// }
+
+// const names = 'Alex,    Orysia, Misha,    Ira     , Paul';
+// const newNames = sortNames(names);
+// console.log(newNames); // 'Alex, Ira, Misha, Orysia, Paul'
