@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 9</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+      }
+      label {
+        display: inline-block;
+        width: 100px;
+        margin-right: 10px;
+        text-align: right;
+      }
+      input[type='text'],
+      select {
+        width: 200px;
+        padding: 5px;
+        margin-bottom: 10px;
+      }
+      button {
+        padding: 5px 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #3e8e41;
+      }
+      label {
+        display: block;
+        margin-top: 20px;
+      }
+
+      input {
+        padding: 5px;
+        font-size: 16px;
+      }
+
+      select {
+        margin-top: 20px;
+        padding: 5px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a class="button" href="../../index.html">Go back</a></p>
+
+    <p>
+      9) Напишіть функцію яка приймає 2 аргументи, ім’я та прізвище, та повертає як результат ЦІЛУ
+      строку ім`я та прізвище. Додати додатково третій параметр - функцію яка буде переводити у
+      певний регістр цю строку, верхній, нижній або кожне слово із великої літери(це три окремі
+      функції мають бути) а також видаляє зайві пробели
+    </p>
+    <h1>Transform Full Name</h1>
+
+    <div>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" placeholder="Enter first name" />
+    </div>
+
+    <div>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" placeholder="Enter last name" />
+    </div>
+
+    <div>
+      <label for="transform">Transform:</label>
+      <select id="transform">
+        <option value="">Select a transform</option>
+        <option value="uppercase">Uppercase</option>
+        <option value="lowercase">Lowercase</option>
+        <option value="capitalize">Capitalize</option>
+      </select>
+    </div>
+
+    <div>
+      <button id="transformBtn">Transform</button>
+    </div>
+
+    <div>
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" readonly />
+    </div>
+
+    <script>
+function getFullName(firstName, lastName, transformFunc = null) {
+  let fullName = `${firstName.trim()} ${lastName.trim()}`;
+
+  fullName = fullName.replace(/\s+/g, ' ');
+
+  if (transformFunc) {
+    switch (transformFunc) {
+      case 'uppercase':
+        fullName = fullName.toUpperCase();
+        break;
+      case 'lowercase':
+        fullName = fullName.toLowerCase();
+        break;
+      case 'capitalize':
+        const capitalizeWord = word => {
+          return word
+            .trim()
+            .split(' ')
+            .map(wordName => wordName.charAt(0).toUpperCase() + wordName.slice(1).toLowerCase())
+            .join(' ');
+        };
+        firstName = capitalizeWord(firstName);
+        lastName = capitalizeWord(lastName);
+        fullName = `${firstName} ${lastName}`;
+        break;
+      default:
+        console.log('Invalid transform function');
+    }
+  }
+
+  return fullName;
+}
+
+      const firstNameInput = document.querySelector('#firstName');
+      const lastNameInput = document.querySelector('#lastName');
+      const transformSelect = document.querySelector('#transform');
+      const fullNameInput = document.querySelector('#fullName');
+      const transformBtn = document.querySelector('#transformBtn');
+
+      transformBtn.addEventListener('click', () => {
+        const firstName = firstNameInput.value.trim();
+        const lastName = lastNameInput.value.trim();
+        const transformFunc = transformSelect.value.trim();
+
+        if (firstName && lastName && transformFunc) {
+          const fullName = getFullName(firstName, lastName, transformFunc);
+          fullNameInput.value = fullName;
+        } else {
+          fullNameInput.value = '';
+        }
+      });
+    </script>
+
+    <script src="../../js/jsHomework1/task-09.js" type="module"></script>
+  </body>
+</html>
