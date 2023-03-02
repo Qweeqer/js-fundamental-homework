@@ -1,20 +1,24 @@
-function countNumbers(arr) {
-  let twoDigit = 0;
-  let threeDigit = 0;
-  let fourDigit = 0;
+// 5) https://codepen.io/misha_klymenko/pen/abzLvqo
+// - перебрати кожен елемент, і вибрати його data-anim значення
+// - вибране значення додати як клас за допомогою classList до цього елемента.
+// - перевірити чи застосувались анімації"
+// - вибрати всі теги із класом cirkle
+// -------------------------------------------------------------------------------------
+//1 - вибрати всі теги із класом cirkle
+const circles = document.querySelectorAll('.cirkle');
 
-  for (let num of arr) {
-    if (num >= 10 && num < 100) {
-      twoDigit += 1;
-    } else if (num >= 100 && num < 1000) {
-      threeDigit += 1;
-    } else if (num >= 1000 && num < 10000) {
-      fourDigit += 1;
-    }
-  }
-
-  return [twoDigit, threeDigit, fourDigit];
-}
-let arr = [1,2,55,3,100,333,9999];
-let counts = countNumbers(arr);
-console.log(counts);  // [1, 2, 1]
+circles.forEach(circle => {
+  //2 - перебрати кожен елемент, і вибрати його data-anim значення
+    // const animationClass = circle.getAttribute('data-anim');
+    // або
+    const animationClass = circle.dataset.anim;
+  //3 - вибране значення додати як клас за допомогою classList до цього елемента.
+  circle.classList.add(animationClass);
+  //4 - Перевірка, чи застосувались анімації
+  console.log(circle.classList.contains(animationClass));
+});
+// або
+//4 - Перевірка, чи застосувались анімації
+// circles.forEach(circle => {
+//   console.log(circle.classList.contains(circle.getAttribute('data-anim')));
+// });

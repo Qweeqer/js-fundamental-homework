@@ -1,92 +1,212 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Task 5</title>
+    <title>Document</title>
     <link rel="stylesheet" href="../../css/common.css" />
     <style>
-      /* CSS стилі для форми та кнопки */
-      form, #result {
+      .box {
+        width: 100%;
         display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    flex-direction: column;
+        flex-flow: row wrap;
+        justify-content: space-around;
       }
-    
-      input[type="text"] {
-        font-size: 18px;
-        padding: 5px;
+
+      .items {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin: 5px;
       }
-    
-      input[type="submit"] {
-        font-size: 18px;
-        padding: 5px 20px;
-        background-color: #4CAF50;
-        color: white;
+
+      .cirkle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        border: 5px solid blue;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        text-align: center;
+        transition-duration: 0.7s;
+      }
+
+      .cirkle:hover {
+        border: 0 solid blue;
+        box-shadow: 5px 5px 5px 0px blue, inset 4px 4px 15px 0px blue,
+          0px 0px 23px 18px rgba(0, 0, 0, 0);
+      }
+
+      .rotate:hover {
+        animation: spin ease-out 3s;
+      }
+
+      .zoom-in:hover {
+        animation: zoom-in ease-out 3s;
+      }
+
+      .translate-down:hover {
+        animation: translate-down ease-out 3s;
+      }
+
+      .translate-left-down:hover {
+        animation: translate-left-down ease-out 3s;
+      }
+
+      .translate-right-down:hover {
+        animation: translate-right-down ease-out 3s;
+      }
+
+      @-webkit-keyframes translate-right-down {
+        from {
+          -webkit-transform: translate(0px, 0%);
+        }
+
+        to {
+          -webkit-transform: translate(120px, 100%);
+        }
+      }
+
+      @-webkit-keyframes translate-left-down {
+        from {
+          -webkit-transform: translate(0px, 0%);
+        }
+
+        to {
+          -webkit-transform: translate(-120px, 100%);
+        }
+      }
+
+      @-webkit-keyframes translate-down {
+        from {
+          -webkit-transform: translate(0px, 0%);
+        }
+
+        to {
+          -webkit-transform: translate(0px, 100%);
+        }
+      }
+
+      @-webkit-keyframes zoom-in {
+        from {
+          -webkit-transform: scale(1);
+        }
+
+        to {
+          -webkit-transform: scale(2);
+        }
+      }
+
+      @-webkit-keyframes spin {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+      /* <---Button styles ----> */
+      .buttonBox {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      #apply-animations,
+      #remove-animation {
+        padding: 20px 20px;
+        /* margin: 0 auto; */
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
         border: none;
-        border-radius: 4px;
+        border-radius: 8px;
         cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+
+      #apply-animations:hover,
+      #remove-animation:hover {
+        background-color: #0062cc;
       }
     </style>
   </head>
+
   <body>
     <p><a class="button" href="../../index.html">Go back</a></p>
-    <p>
-    5) Напишіть функцію яка знаходить в масиві двозначні(10+), трьохзначні(100+) та чотирьохзначні(1000+) числа та повертає
-    в масив їх кількість.<br>
-    let arr = [1,2,55,3,100, 333, 9999];<br>
-    let arrNew = funcName(arr);<br>
-    console.log(arrNew); // [1, 2, 1]
-  </p>
-    <h1>Count Numbers</h1>
-    
-    <form>
-      <label for="numbers">Enter numbers (comma separated):</label>
-      <input type="text" id="numbers" placeholder="1,2,55,3,100, 333, 9999" name="numbers">
-      <button type="button" onclick="showCountNumbers()">Count numbers</button>
-    </form>
-    
-    <div id="result"></div>
-    
+    <div class="box">
+      <div class="items">
+        <div class="cirkle" data-anim="zoom-in">
+          <h3>1</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="cirkle" data-anim="rotate">
+          <h3>2</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="cirkle" data-anim="translate-down">
+          <h3>3</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="cirkle" data-anim="translate-left-down">
+          <h3>4</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="cirkle" data-anim="translate-right-down">
+          <h3>5</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+    </div>
+
+    <div class="buttonBox">
+      <button id="apply-animations">Apply Animations</button>
+      <button id="remove-animation">Remove Animation</button>
+    </div>
     <script>
-      function countNumbers(arr) {
-        let twoDigit = 0;
-        let threeDigit = 0;
-        let fourDigit = 0;
+      const applyAnimationsBtn = document.getElementById('apply-animations');
+      const circles = document.querySelectorAll('.cirkle');
 
-        for (let num of arr) {
-          if (num >= 10 && num < 100) {
-            twoDigit += 1;
-          } else if (num >= 100 && num < 1000) {
-            threeDigit += 1;
-          } else if (num >= 1000 && num < 10000) {
-            fourDigit += 1;
-          }
-        }
+      function applyAnimations() {
+        circles.forEach(circle => {
+          const animationClass = circle.dataset.anim;
+          circle.classList.add(animationClass);
+          console.log('Чи застосувались анімації:', circle.classList.contains(animationClass));
+        });
 
-        return [twoDigit, threeDigit, fourDigit];
+        // Перевірка, чи застосувались анімації
+        // circles.forEach(circle => {
+        //   console.log(circle.classList.contains(circle.dataset.anim));
+        // });
       }
+      //Слухач на клік
+      applyAnimationsBtn.addEventListener('click', applyAnimations);
 
-      function showCountNumbers() {
-        // Отримати значення з поля введення
-        let input = document.getElementById("numbers").value;
-        // Розбити введений рядок на масив чисел
-        let numbers = input.split(",").map(Number);
-        // Викликати функцію для підрахунку кількості чисел
-        let counts = countNumbers(numbers);
-        // Вивести результат на сторінку
-        document.getElementById("result").innerHTML =
-          "Two-digit numbers: " +
-          counts[0] +
-          "<br>Three-digit numbers: " +
-          counts[1] +
-          "<br>Four-digit numbers: " +
-          counts[2];
-      }
+      // Видалення класу
+      const removeButton = document.getElementById('remove-animation');
+      removeButton.addEventListener('click', () => {
+        circles.forEach(circle => {
+          const animationClass = circle.dataset.anim;
+          circle.classList.remove(animationClass);
+          console.log('Чи видалились класи анімації:', !circle.classList.contains(animationClass));
+        });
+      });
     </script>
-
-    <script src="../../js/jsHomework1/task-05.js" type="module"></script>
   </body>
 </html>
