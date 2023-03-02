@@ -46,16 +46,16 @@ p {
   color: #333;
 }
 .title {
-      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
-    }
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+}
 .title::after {
-      content: '';
-      display: block;
-      height: 1px;
-      background-color: #ccc;
-      filter: blur(1px);
-    }
+  content: '';
+  display: block;
+  height: 1px;
+  background-color: #ccc;
+  filter: blur(1px);
+}
 li {
   margin-bottom: 0.5em;
 }
@@ -149,20 +149,21 @@ a.button:hover {
   margin-top: 6px;
 }
 .toggle-btn {
-      background-color: #4CAF50;
-      border: none;
-      color: white;
-      padding: 8px 16px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
+  width: 15%;
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
 
-    .toggle-btn:hover {
-      background-color: #3e8e41;
-    }
+.toggle-btn:hover {
+  background-color: #3e8e41;
+}
