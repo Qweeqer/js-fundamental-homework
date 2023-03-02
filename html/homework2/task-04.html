@@ -87,7 +87,7 @@ input {
   <body>
     <p><a class="button" href="../../index.html">Go back</a></p>
     <p>
-      "4*) Створіть батьківський клас GeometricFigure, який має порожній метод для визначення площі
+      4) Створіть батьківський клас GeometricFigure, який має порожній метод для визначення площі
       getArea() та метод toString() для виведення назви класу. Створіть 3 класи нащадки Triangle,
       Square і Circle, які наслідуються від класу GeometricFigure. Кожен з дочірніх класів має свою
       реалізацію методу getArea(), для визначення площі фігури. В конструкторах дочірніх класів
@@ -100,7 +100,7 @@ input {
       Object.getPrototypeOf(this).constructor.name; } } Your code . . . const figures = [new
       Triangle(4, 5), new Square(7), new Circle(5)]; console.log(handleFigures(figures)); Приклад
       результату: Geometric figure: Triangle - area: 10 Geometric figure: Square - area: 49
-      Geometric figure: Circle - area: 78.53981633974483 137.53981633974485 // total area"
+      Geometric figure: Circle - area: 78.53981633974483 137.53981633974485 // total area
     </p>
 
     <div>
@@ -179,7 +179,7 @@ input {
         const figuresStr = figures
           .map(figure => `Geometric figure: ${figure.toString()} - area: ${figure.getArea()}`)
           .join('<br/>');
-        resultDiv.innerHTML = `${figuresStr}<br/>Total area: ${totalArea}`;
+        resultDiv.innerHTML = `Result:<br>${figuresStr}<br/>Total area: ${totalArea}`;
       }
 
       const triangles = [];
