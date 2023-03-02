@@ -68,7 +68,7 @@
 
     <div class="homework">
       <h2 class="title">Homework 1 <button class="toggle-btn">Show Tasks</button></h2>
-      <ul class="taskList">
+      <ul class="taskList hidden">
         <li><a class="button" href="./html/homework1/task-01.html">Task 1</a></li>
         <li><a class="button" href="./html/homework1/task-02.html">Task 2</a></li>
         <li><a class="button" href="./html/homework1/task-03.html">Task 3</a></li>
@@ -81,36 +81,45 @@
         <li><a class="button" href="./html/homework1/task-10.html">Task 10</a></li>
       </ul>
 
-      <h2 class="title">Homework 2 <button class="toggle-btn">Show Tasks</button></h2>
+      <h2 class="title">Homework 2 <button class="toggle-btn">Hide Tasks</button></h2>
       <ul class="taskList">
         <li><a class="button" href="./html/homework2/task-01.html">Task 1</a></li>
         <li><a class="button" href="./html/homework2/task-02.html">Task 2</a></li>
         <li><a class="button" href="./html/homework2/task-03.html">Task 3</a></li>
         <li><a class="button" href="./html/homework2/task-04.html">Task 4</a></li>
         <li><a class="button" href="./html/homework2/task-05.html">Task 5</a></li>
-        <!-- <li><a class="button" href="./html/homework2/task-06.html">Task 6</a></li>
-        <li><a class="button" href="./html/homework2/task-07.html">Task 7</a></li>
-        <li><a class="button" href="./html/homework2/task-08.html">Task 8</a></li>
-        <li><a class="button" href="./html/homework2/task-09.html">Task 9</a></li>
-        <li><a class="button" href="./html/homework2/task-10.html">Task 10</a></li> -->
       </ul>
     </div>
-    <script>
-      // Add click event listener to all toggle buttons
+<script>
+  const toggleBtns = document.querySelectorAll('.toggle-btn');
+
+  toggleBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const taskList = btn.parentNode.nextElementSibling;
       const toggleBtns = document.querySelectorAll('.toggle-btn');
-      toggleBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const taskList = btn.parentNode.nextElementSibling;
-          // Toggle the "hidden" class on the task list
-          taskList.classList.toggle('hidden');
-          // Change the text of the button based on the state of the task list
-          if (taskList.classList.contains('hidden')) {
-            btn.textContent = 'Show Tasks';
-          } else {
-            btn.textContent = 'Hide Tasks';
-          }
-        });
+
+      toggleBtns.forEach(otherBtn => {
+        const otherTaskList = otherBtn.parentNode.nextElementSibling;
+        if (otherTaskList !== taskList && !otherTaskList.classList.contains('hidden')) {
+          otherTaskList.classList.add('hidden');
+          otherBtn.textContent = 'Show Tasks';
+        }
       });
-    </script>
+
+      taskList.classList.toggle('hidden');
+
+      if (taskList.classList.contains('hidden')) {
+        btn.textContent = 'Show Tasks';
+      } else {
+        btn.textContent = 'Hide Tasks';
+      }
+    });
+  });
+</script>
+
+
+
+
+
   </body>
 </html>
