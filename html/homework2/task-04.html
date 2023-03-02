@@ -7,112 +7,222 @@
     <title>Task 4</title>
     <link rel="stylesheet" href="../../css/common.css" />
     <style>
-    /* Стилі для форми */
-    form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 1.2rem;
-    }
-    
-    label {
-      text-align: center;
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: 1.3;
+      /* Стилі для форми */
+      /* стилі для заголовку сторінки */
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
 
-    }
-    
-    input[type="text"],
-    input[type="number"] {
-    padding: 5px;
-    margin-bottom: 10px;
-    width: 200px;
-    font-size: 1.2rem;
-    }
-    
-    button:hover {
-    background-color: #0062cc;
-    }
-    
-    /* Стилі для виведення результату */
-    .result {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    font-size: 1.2rem;
-    }
+/* стилі для рядка з кнопками та інпутами */
+div {
+  margin: 10px 0;
+}
+
+/* стилі для лейблів */
+label {
+  display: inline-block;
+  width: 100px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* стилі для інпутів */
+input {
+  width: 80px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* стилі для кнопок */
+/* button {
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: none;
+  background-color: #0077cc;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+} */
+
+/* стилі для блоку з результатами */
+#result {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+      label {
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 20px;
+        font-weight: 1.3;
+      }
+
+      input[type='text'],
+      input[type='number'] {
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 200px;
+        font-size: 1.2rem;
+      }
+
+      button:hover {
+        background-color: #0062cc;
+      }
+
+      /* Стилі для виведення результату */
+      .result {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        font-size: 1.2rem;
+      }
     </style>
   </head>
   <body>
     <p><a class="button" href="../../index.html">Go back</a></p>
     <p>
-      4) Фільтрувати масив об’єктів по віку, тобто новий масив має складатись із об’єктів які старше 18 років.<br>
-      let arr = [
-      { name: "Misha Klym", age: 2},
-      { name: "Sam Winchester", age: 5 },<br>
-      { name: "Jordan Peterson", age: 43 },
-      { name: "John Wayne", age: 17 },
-      { name: "Stan Lee", age: 22 },<br>
-      {name: "John Smith", age:"40"},
-      {name: "John Young", age:"10"},
-      {name: "Jasmyn Rock", age:"32"},<br>
-      {name:"Sara Conor", age:"23"},
-      {name: 'Amelia Arhard', age:'17'},
-      ];<br>
-      let newArray = ...; //{ name: 'Jordan Peterson', age: 43 },
-      { name: 'Stan Lee', age: 22 },
-      { name: 'John Smith', age: 40 },
-      { name: 'Jasmyn Rock', age: 32 },
-      { name: 'Sara Conor', age: 23 }
+      "4*) Створіть батьківський клас GeometricFigure, який має порожній метод для визначення площі
+      getArea() та метод toString() для виведення назви класу. Створіть 3 класи нащадки Triangle,
+      Square і Circle, які наслідуються від класу GeometricFigure. Кожен з дочірніх класів має свою
+      реалізацію методу getArea(), для визначення площі фігури. В конструкторах дочірніх класів
+      передбачити властивості необхідні для визначення площі фігури, наприклад для кола - радіус r.
+      Створіть зовнішню функцію handleFigures(figures), яка прийматиме масив об’єктів дочірніх
+      класів figures, перевірятиме чи об’єкт належить батьківському класу з урахуванням
+      наслідування, виводитиме назву створеного об’єкту відповідної фігури, розраховану площу фігури
+      та сумарну площу всіх фігур. Для реалізації функції можете використати метод reduce(). class
+      GeometricFigure { getArea() { return 0; } toString() { return
+      Object.getPrototypeOf(this).constructor.name; } } Your code . . . const figures = [new
+      Triangle(4, 5), new Square(7), new Circle(5)]; console.log(handleFigures(figures)); Приклад
+      результату: Geometric figure: Triangle - area: 10 Geometric figure: Square - area: 49
+      Geometric figure: Circle - area: 78.53981633974483 137.53981633974485 // total area"
     </p>
 
-    <form>    
-      <label for="age"><h1>Введіть Вік</h1>
-        <h2>(наприклад для виведення об’єктів,<br> які старше 18 років введіть 18):</h2>
-      </label>
-      <input type="number" id="age">
-    
-      <button type="button" onclick="filterArray()">Фільтрувати</button>
-    </form>
-    
-    <div class="result">
-      <h2>Результат:</h2>
-      <ul id="output"></ul>
+    <div>
+      <label for="triangle-base">Triangle base:</label>
+      <input type="number" id="triangle-base" />
+      <label for="triangle-height">Triangle height:</label>
+      <input type="number" id="triangle-height" />
+      <button id="triangle-btn">Add Triangle</button>
     </div>
-    
+    <div>
+      <label for="square-side">Square side:</label>
+      <input type="number" id="square-side" />
+      <button id="square-btn">Add Square</button>
+    </div>
+    <div>
+      <label for="circle-radius">Circle radius:</label>
+      <input type="number" id="circle-radius" />
+      <button id="circle-btn">Add Circle</button>
+    </div>
+    <div>
+      <button id="calculate-btn">Calculate</button>
+    </div>
+    <div id="result"></div>
+
     <script>
-      // Функція для фільтрування масиву об'єктів
-      function filterArray() {
-        let ageInput = document.getElementById("age");
-        let output = document.getElementById("output");
+      class GeometricFigure {
+        getArea() {
+          return 0;
+        }
 
-        let arr = [
-           { name: 'Misha Klym', age: 2 },
-          { name: 'Sam Winchester', age: 5 },
-          { name: 'Jordan Peterson', age: 43 },
-          { name: 'John Wayne', age: 17 },
-          { name: 'Stan Lee', age: 22 },
-          { name: 'John Smith', age: 40 },
-          { name: 'John Young', age: 11 },
-          { name: 'Jasmyn Rock', age: 32 },
-          { name: 'Sara Conor', age: 23 },
-          { name: 'Amelia Arhard', age: 17 },
-        ];
-
-        let newArray = arr.filter(obj => obj.age > ageInput.value);
-
-        // Виведення результату на сторінку
-        output.innerHTML = "";
-        newArray.forEach(obj => {
-          let li = document.createElement("li");
-          li.textContent = obj.name + " (" + obj.age + " років)";
-          output.appendChild(li);
-        });
+        toString() {
+          return this.constructor.name;
+        }
       }
+
+      class Triangle extends GeometricFigure {
+        constructor(base, height) {
+          super();
+          this.base = base;
+          this.height = height;
+        }
+
+        getArea() {
+          return 0.5 * this.base * this.height;
+        }
+      }
+
+      class Square extends GeometricFigure {
+        constructor(side) {
+          super();
+          this.side = side;
+        }
+
+        getArea() {
+          return this.side ** 2;
+        }
+      }
+
+      class Circle extends GeometricFigure {
+        constructor(radius) {
+          super();
+          this.radius = radius;
+        }
+
+        getArea() {
+          return Math.PI * this.radius ** 2;
+        }
+      }
+
+      function handleFigures(figures) {
+        const totalArea = figures.reduce((sum, figure) => {
+          return sum + figure.getArea();
+        }, 0);
+
+        const resultDiv = document.getElementById('result');
+        const figuresStr = figures
+          .map(figure => `Geometric figure: ${figure.toString()} - area: ${figure.getArea()}`)
+          .join('<br/>');
+        resultDiv.innerHTML = `${figuresStr}<br/>Total area: ${totalArea}`;
+      }
+
+      const triangles = [];
+      const squares = [];
+      const circles = [];
+
+      const triangleBtn = document.getElementById('triangle-btn');
+      triangleBtn.addEventListener('click', () => {
+        const baseInput = document.getElementById('triangle-base');
+        const heightInput = document.getElementById('triangle-height');
+        const base = parseFloat(baseInput.value);
+        const height = parseFloat(heightInput.value);
+        const triangle = new Triangle(base, height);
+        triangles.push(triangle);
+        baseInput.value = '';
+        heightInput.value = '';
+      });
+
+      const squareBtn = document.getElementById('square-btn');
+      squareBtn.addEventListener('click', () => {
+        const sideInput = document.getElementById('square-side');
+        const side = parseFloat(sideInput.value);
+        const square = new Square(side);
+        squares.push(square);
+        sideInput.value = '';
+      });
+
+      const circleBtn = document.getElementById('circle-btn');
+      circleBtn.addEventListener('click', () => {
+        const radiusInput = document.getElementById('circle-radius');
+        const radius = parseFloat(radiusInput.value);
+        const circle = new Circle(radius);
+        circles.push(circle);
+        radiusInput.value = '';
+      });
+
+      const calculateBtn = document.getElementById('calculate-btn');
+      calculateBtn.addEventListener('click', () => {
+        const figures = [...triangles, ...squares, ...circles];
+        handleFigures(figures);
+      });
     </script>
 
-    <script src="../../js/jsHomework1/task-04.js" type="module"></script>
+    <script src="../../js/jsHomework2/task-04.js" type="module"></script>
   </body>
 </html>

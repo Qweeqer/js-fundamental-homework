@@ -1,20 +1,56 @@
-let arr = [
-  { name: 'Misha Klym', age: 2 },
-  { name: 'Sam Winchester', age: 5 },
-  { name: 'Jordan Peterson', age: 43 },
-  { name: 'John Wayne', age: 17 },
-  { name: 'Stan Lee', age: 22 },
-  { name: 'John Smith', age: 40 },
-  { name: 'John Young', age: 11 },
-  { name: 'Jasmyn Rock', age: 32 },
-  { name: 'Sara Conor', age: 23 },
-  { name: 'Amelia Arhard', age: 16 },
-];
+class GeometricFigure {
+  getArea() {
+    return 0;
+  }
 
-let newArray = arr.filter(obj => obj.age > 18);
+  toString() {
+    // return Object.getPrototypeOf(this).constructor.name;
+    return this.constructor.name;
+  }
+}
 
-console.log(newArray);
-// [ { name: 'Stan Lee', age: 22 },
-//   { name: 'John Smith', age: '40' },
-//   { name: 'Jasmyn Rock', age: '32' },
-//   { name: 'Sara Conor', age: '23' }]
+class Triangle extends GeometricFigure {
+  constructor(base, height) {
+    super();
+    this.base = base;
+    this.height = height;
+  }
+
+  getArea() {
+    return 0.5 * this.base * this.height;
+  }
+}
+
+class Square extends GeometricFigure {
+  constructor(side) {
+    super();
+    this.side = side;
+  }
+
+  getArea() {
+    return this.side ** 2;
+  }
+}
+
+class Circle extends GeometricFigure {
+  constructor(radius) {
+    super();
+    this.radius = radius;
+  }
+
+  getArea() {
+    return Math.PI * this.radius ** 2;
+  }
+}
+
+function handleFigures(figures) {
+  const totalArea = figures.reduce((sum, figure) => {
+    console.log(`Geometric figure: ${figure.toString()} - area: ${figure.getArea()}`);
+    return sum + figure.getArea();
+  }, 0);
+
+  console.log('Total area: ', totalArea);
+}
+
+const figures = [new Triangle(4, 5), new Square(7), new Circle(5)];
+handleFigures(figures);
