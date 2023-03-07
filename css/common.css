@@ -103,7 +103,9 @@ ul li a {
   background-color: #ccc; 
 } */
 a.button {
-  display: inline-block;
+  display: flex;
+    align-items: center;
+    justify-content: center;
   padding: 10px;
   /* background-color: #7409e0; */
   border: none;
