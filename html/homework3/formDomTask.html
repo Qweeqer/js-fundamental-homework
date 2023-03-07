@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/formDomTask.css" />
+  </head>
+  <body>
+    <p><a class="button" href="../../index.html">Go back</a></p>
+    <!-- /*********************************/ -->
+    <div class="array">
+      <h1>Масиви в Java Script</h1>
+      <fieldset>
+        <legend align="center">Поля які будуть входити до масиву</legend>
+        <input
+          type="text"
+          data-form="ПІБ"
+          class="text-data arr"
+          name="fio"
+          placeholder="Введіть ПІБ"
+        />
+        <input
+          type="phone"
+          data-form="Номер телефону"
+          class="arr"
+          name="phone"
+          placeholder="+380-00-000-0000"
+        />
+        <input
+          type="date"
+          data-form="Дата народження"
+          class="arr"
+          name="birthday"
+        />
+        <input
+          type="email"
+          data-form="Електронна пошта"
+          class="arr"
+          placeholder="email@softserveinc.com"
+          name="email"
+        />
+
+        <input type="submit" class="btn" />
+      </fieldset>
+
+      <div class="out"></div>
+    </div>
+    <script src="../formDomTask.js"></script>
+  </body>
+</html>
