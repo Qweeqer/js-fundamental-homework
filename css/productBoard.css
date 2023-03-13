@@ -471,4 +471,8 @@ body{
         padding: 20px;
     }
 }
-
+#outprice{
+    display: flex;
+    justify-content: flex-start;
+    padding: 0;
+}
