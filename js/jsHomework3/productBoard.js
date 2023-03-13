@@ -5,6 +5,7 @@
 // 4) Зробити опитування користувача, кожна відповідь затерає наявне DOM дерево і відрисовує нове (із наступним питанням), всі відповіді зберігати в масиві, і в кінці на основі цих відповідей вивести інформацію про користувача на основі відповідей.
 // 5) Реалізувати логіку підрахунку ціни товару по його варіаціях(при кліку на колір змінювати ціну товару).
 // https://codepen.io/qweeqer/pen/bGxoewe
+
 const shoesImgNodes = document.querySelectorAll('.shoe');
 const shoeBckgrnddNodes = document.querySelectorAll('.gradient');
 const btnsColorNodes = document.querySelectorAll('.color');
