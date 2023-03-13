@@ -1,15 +1,15 @@
-.array{
+.array {
   width: 550px;
   margin: 0 auto;
 }
-input{
+input {
   /* display: block; */
   margin-top: 10px;
   width: 250px;
 }
-.out{
+.out {
   width: 100%;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,5 +19,5 @@ input{
   font-size: 25px;
   word-wrap: break-word;
   color: white;
-  background-color: green;
+  background-color: #91d491;
 }
