@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+      .box {
+        width: 100%;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+      }
+
+      .items {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        margin: 5px;
+      }
+
+      .cirkle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+        border: 5px solid blue;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        text-align: center;
+        transition-duration: 0.7s;
+      }
+
+      .cirkle:hover {
+        border: 0 solid blue;
+        box-shadow: 5px 5px 5px 0px blue, inset 4px 4px 15px 0px blue,
+          0px 0px 23px 18px rgba(0, 0, 0, 0);
+      }
+
+      .rotate:hover {
+        animation: spin ease-out 3s;
+      }
+
+      .zoom-in:hover {
+        animation: zoom-in ease-out 3s;
+      }
+
+      .translate-down:hover {
+        animation: translate-down ease-out 3s;
+      }
+
+      .translate-left-down:hover {
+        animation: translate-left-down ease-out 3s;
+      }
+
+      .translate-right-down:hover {
+        animation: translate-right-down ease-out 3s;
+      }
+
+      @-webkit-keyframes translate-right-down {
+        from {
+          -webkit-transform: translate(0px, 0%);
+        }
+
+        to {
+          -webkit-transform: translate(120px, 100%);
+        }
+      }
+
+      @-webkit-keyframes translate-left-down {
+        from {
+          -webkit-transform: translate(0px, 0%);
+        }
+
+        to {
+          -webkit-transform: translate(-120px, 100%);
+        }
+      }
+
+      @-webkit-keyframes translate-down {
+        from {
+          -webkit-transform: translate(0px, 0%);
+        }
+
+        to {
+          -webkit-transform: translate(0px, 100%);
+        }
+      }
+
+      @-webkit-keyframes zoom-in {
+        from {
+          -webkit-transform: scale(1);
+        }
+
+        to {
+          -webkit-transform: scale(2);
+        }
+      }
+
+      @-webkit-keyframes spin {
+        from {
+          -webkit-transform: rotate(0deg);
+        }
+
+        to {
+          -webkit-transform: rotate(360deg);
+        }
+      }
+      /* <---Button styles ----> */
+      .buttonBox {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      #apply-animations,
+      #remove-animation {
+        padding: 20px 20px;
+        /* margin: 0 auto; */
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+      }
+
+      #apply-animations:hover,
+      #remove-animation:hover {
+        background-color: #0062cc;
+      }
+    </style>
+  </head>
+
+  <body>
+    <p><a class="button" href="../../index.html">Go back</a></p>
+    <div class="box">
+      <div class="items">
+        <div class="cirkle" data-anim="zoom-in">
+          <h3>1</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="cirkle" data-anim="rotate">
+          <h3>2</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="cirkle" data-anim="translate-down">
+          <h3>3</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="cirkle" data-anim="translate-left-down">
+          <h3>4</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+
+      <div class="items">
+        <div class="cirkle" data-anim="translate-right-down">
+          <h3>5</h3>
+        </div>
+        <p>lorem</p>
+      </div>
+    </div>
+
+    <div class="buttonBox">
+      <button id="apply-animations">Apply Animations</button>
+      <button id="remove-animation">Remove Animation</button>
+    </div>
+    <script>
+      const applyAnimationsBtn = document.getElementById('apply-animations');
+      const circles = document.querySelectorAll('.cirkle');
+
+      function applyAnimations() {
+        circles.forEach(circle => {
+          const animationClass = circle.dataset.anim;
+          circle.classList.add(animationClass);
+          console.log('Чи застосувались анімації:', circle.classList.contains(animationClass));
+        });
+
+        // Перевірка, чи застосувались анімації
+        // circles.forEach(circle => {
+        //   console.log(circle.classList.contains(circle.dataset.anim));
+        // });
+      }
+      //Слухач на клік
+      applyAnimationsBtn.addEventListener('click', applyAnimations);
+
+      // Видалення класу
+      const removeButton = document.getElementById('remove-animation');
+      removeButton.addEventListener('click', () => {
+        circles.forEach(circle => {
+          const animationClass = circle.dataset.anim;
+          circle.classList.remove(animationClass);
+          console.log('Чи видалились класи анімації:', !circle.classList.contains(animationClass));
+        });
+      });
+    </script>
+  </body>
+</html>

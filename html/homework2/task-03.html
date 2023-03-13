@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      form {
+        margin: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      label {
+        display: block;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      input[type='text'] {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+      }
+      button[type='submit'] {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button[type='submit']:hover {
+        background-color: #3e8e41;
+      }
+      #result {
+        margin: 1rem;
+        padding: 1rem;
+        font-size: 1.2rem;
+        background-color: #f8f8f8;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a class="button" href="../../index.html">Go back</a></p>
+
+    <p>
+      3) Створіть клас Person, в якого конструктор приймає параметри name і surname,
+      а також міститься метод showFullName(), який виводить ім’я і прізвище особи.
+      Від класу Person наслідується клас Student, конструктор якого крім name і surname,
+      приймає параметр year (рік вступу до університету). В класі Student необхідно перевизначити
+      метод showFullName(midleName), щоб виводилося не лише ім’я, прізвище, але і по-батькові (midleName) студента.
+      Також в класі Student необхідно реалізувати метод showCourse(), який виводитиме поточний курс студента (від 1 до 6).
+      Значення курсу визначатиметься як різниця поточного року (визначити самостійно) і року вступу
+      до ВУЗу year.<br />
+      const stud1 = new Student("Petro", "Petrenko", 2019);<br />
+      console.log(stud1.showFullName("Petrovych")); // Petrenko Petro Petrovych<br />
+      console.log("Current course: " + stud1.showCourse()); //Current course: 4
+    </p>
+    <h1>Show Course</h1>
+    <form id="studentForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" />
+      <label for="middleName">Middle Name:</label>
+      <input type="text" id="middleName" name="middleName" />
+      <label for="surname">Surname:</label>
+      <input type="text" id="surname" name="surname" />
+      <label for="year">Year of admission:</label>
+      <input type="text" id="year" name="year" />
+      <button type="submit">Show Course</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+      class Person {
+        constructor(name, surname) {
+          this.name = name;
+          this.surname = surname;
+        }
+
+        showFullName() {
+          console.log(`${this.surname} ${this.name}`);
+        }
+      }
+
+      class Student extends Person {
+        constructor(name, surname, year, middleName) {
+          super(name, surname);
+          this.year = year;
+          this.middleName = middleName;
+        }
+
+        showFullName() {
+          console.log(`${this.surname} ${this.name} ${this.middleName}`);
+        }
+
+        showCourse() {
+          const currentYear = new Date().getFullYear();
+          const course = currentYear - this.year + 1;
+          return course >= 1 && course <= 6 ? course : 'Out of course range';
+        }
+      }
+
+      const studentForm = document.getElementById('studentForm');
+      const resultDiv = document.getElementById('result');
+
+      studentForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const surname = document.getElementById('surname').value;
+        const year = parseInt(document.getElementById('year').value);
+        const middleName = document.getElementById('middleName').value;
+        const stud = new Student(name, surname, year, middleName);
+        const course = stud.showCourse();
+        const fullName = stud.showFullName();
+        resultDiv.innerHTML = `Поточний курс студента ${fullName}: ${course}`;
+      });
+    </script>
+
+    <script src="../../js/jsHomework2/task-03.js" type="module"></script>
+  </body>
+</html>

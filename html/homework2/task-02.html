@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 2</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      p {
+        font-size: 1.2rem;
+        margin: 0;
+        padding: 1rem;
+        background-color: #f8f8f8;
+        border-bottom: 1px solid #ccc;
+      }
+      h1 {
+        font-size: 2rem;
+        margin: 1rem;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem;
+      }
+      label {
+        display: block;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      input[type='text'] {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        border: 1px solid #ccc;
+        /* width: 100%; */
+        margin-bottom: 1rem;
+      }
+      button[type='submit'] {
+        font-size: 1.2rem;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button[type='submit']:hover {
+        background-color: #3e8e41;
+      }
+      #result {
+        margin: 1rem;
+        padding: 1rem;
+        text-align: center;
+        font-size: 1.2rem;
+        background-color: #f8f8f8;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a class="button" href="../../index.html">Go back</a></p>
+    <p>
+      2)Напишіть функцію propsCount(currentObject), <br />
+      яка приймає об’єкт і визначає кількість властивостей цього об’єкта. Наприклад для об’єкта: let
+      mentor = {<br />course: "JS fundamental",<br />
+      duration: 3,<br />
+      direction: "web-development"};<br />
+      propsCount(mentor); // 3
+    </p>
+    <h1>Create Property</h1>
+    <form id="propsForm">
+      <label for="propName">Property Name:</label>
+      <input type="text" id="propName" name="propName" />
+      <label for="propValue">Property Value:</label>
+      <input type="text" id="propValue" name="propValue" />
+      <button type="submit" id="addProp">Add Property</button>
+    </form>
+
+    <div id="result">Введіть назву властивості та її значення</div>
+
+    <script>
+      let mentor = {
+        course: 'JS fundamental',
+        duration: 3,
+        direction: 'web-development',
+      };
+
+      const propsCount = currentObject => Object.keys(currentObject).length;
+
+      document.getElementById('propsForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        let propName = document.getElementById('propName').value;
+        let propValue = document.getElementById('propValue').value;
+        mentor[propName] = propValue;
+        let result = document.getElementById('result');
+        result.textContent = 'Number of properties: ' + propsCount(mentor);
+        result.appendChild(document.createElement('br'));
+        for (let prop in mentor) {
+          result.appendChild(document.createTextNode(prop + ': ' + mentor[prop]));
+          result.appendChild(document.createElement('br'));
+        }
+      });
+      console.log('Кількість властивостей цього об’єкта: ', propsCount(mentor)); // 3
+    </script>
+
+    <script src="../../js/jsHomework2/task-02.js" type="module"></script>
+  </body>
+</html>

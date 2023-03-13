@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      
+
+      /* label {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+      }
+
+      input[type='text'] {
+        padding: 7px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+      #inputForm {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      input[type='button'] {
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: #fff;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      input[type='button']:hover {
+        background-color: #3e8e41;
+      } */
+      input {
+        margin-bottom: 10px;
+        padding: 5px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+      }
+
+      button {
+        padding: 8px 12px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: #3e8e41;
+      }
+
+      #result {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 3px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a class="button" href="../../index.html">Go back</a></p>
+    <p>
+      1) Створіть довільний об’єкт, який має 5 полів. Необхідно написати функцію showProps(obj),
+      яка<br />
+      приймає даний об’єкт і виводить список його властивостей записаних в масив. Виведіть також<br />
+      масив значень властивостей об’єкта.
+    </p>
+    <h1>Object Properties</h1>
+
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" />
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" />
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" />
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" />
+
+    <button id="submitBtn">Submit</button>
+
+    <div id="result">Введіть масив значень та натисніть кнопку</div>
+
+    <script>
+      // Створюємо конструктор об'єкта з іменем Personfunc, який приймає 5 аргументів для створення об'єкта.
+      // Далі ми створюємо змінну personObj, яка містить новий об'єкт типу Personfunc з переданими значеннями аргументів.
+      function Personfunc(firstName, lastName, age, email, phone) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.email = email;
+        this.phone = phone;
+      }
+
+      // Функція showProps, що виводить список властивостей та масив значень об'єкта
+      function showProps(obj) {
+        const propList = Object.keys(obj); // Отримуємо список властивостей
+        const valueList = Object.values(obj); // Отримуємо масив значень властивостей
+
+        return {
+          properties: propList,
+          values: valueList,
+        };
+      }
+
+      const submitBtn = document.getElementById('submitBtn');
+      const result = document.getElementById('result');
+
+      submitBtn.addEventListener('click', () => {
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const age = document.getElementById('age').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+
+        const personObj = new Personfunc(firstName, lastName, age, email, phone);
+
+        const props = showProps(personObj);
+
+        result.innerHTML = `
+          <p>Список властивостей об'єкта: ${props.properties.join(', ')}</p>
+          <p>Масив значень властивостей об'єкта: ${props.values.join(', ')}</p>
+        `;
+      });
+    </script>
+    <script src="../../js/jsHomework2/task-01.js" type="module"></script>
+  </body>
+</html>
