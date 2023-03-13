@@ -9,12 +9,13 @@ input{
 }
 .out{
   width: 100%;
-  height: 300px;
+  
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 10px 0 10px 0;
+  padding: 10px;
   font-size: 25px;
   word-wrap: break-word;
   color: white;
