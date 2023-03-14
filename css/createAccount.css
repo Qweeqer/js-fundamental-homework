@@ -1,0 +1,170 @@
+/*dark background to support form theme*/
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: url('../image/fon.jpg');
+}
+h1,
+p {
+  margin: 0;
+  text-align: center;
+}
+form {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  border-radius: 50px;
+  background-color: #03a9f442;
+}
+
+label {
+  display: block;
+
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+input {
+  width: 50vw;
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  /* border: none; */
+  /* border-bottom: 2px solid #ddd; */
+  border-radius: 50px;
+  border: 2px solid grey;
+  position: relative;
+}
+input#checkBox {
+  width: auto;
+}
+svg.input-icon {
+  position: absolute;
+  right: 10px;
+  top: 55%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  fill: blue;
+}
+
+#full-name + svg.input-icon {
+  background-color: gainsboro;
+  border-radius: 50%;
+}
+
+#email + svg.input-icon {
+  background-color: gainsboro;
+  border-radius: 50%;
+}
+
+#phone + svg.input-icon {
+  background-color: gainsboro;
+  border-radius: 50%;
+}
+
+#password + svg.input-icon {
+  background-color: gainsboro;
+  border-radius: 50%;
+}
+
+#confirm-password + svg.input-icon {
+  background-color: gainsboro;
+  border-radius: 50%;
+}
+
+input:focus {
+  outline: none;
+  /* border-bottom-color: #07f; */
+  border: 3px inset #07f;
+}
+
+button[type='submit'] {
+  background-color: #07f;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  /* margin-top: 20px; */
+  cursor: pointer;
+}
+
+p {
+  /* margin-top: 20px; */
+  font-size: 16px;
+}
+
+a {
+  color: #07f;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.input-wrapper {
+  position: relative;
+  /* padding-right: 30px;  */
+}
+
+input[type='text']::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url('../image/icons.svg#icon-user');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* input[type="email"]::before {
+  /* стилі для другого svg */
+/* } */
+
+/* і так далі для решти інпутів */
+
+/* .input-wrapper input {
+  padding-right: 30px;
+}
+
+.input-wrapper .input-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+} */
+input.error {
+  border: 2px solid red;
+}
+.input-wrapper {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.input-wrapper label {
+  position: absolute;
+  top: 15%;
+  left: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.input-wrapper input:focus-within + label {
+  top: -25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.checkBox{
+    margin: 0px;
+}
