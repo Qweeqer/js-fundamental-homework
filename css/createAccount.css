@@ -10,12 +10,15 @@ p {
   margin: 0;
   text-align: center;
 }
+span{
+  font-size: 15px;
+  line-height: 1.36;
+}
 form {
   width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
   border-radius: 50px;
   background-color: #03a9f442;
 }
@@ -28,7 +31,7 @@ label {
 }
 
 input {
-  width: 50vw;
+  width: 40vw;
   padding: 10px;
   margin-top: 5px;
   font-size: 16px;
@@ -104,6 +107,7 @@ p {
 a {
   color: #07f;
   text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover {
@@ -111,7 +115,6 @@ a:hover {
 }
 .input-wrapper {
   position: relative;
-  /* padding-right: 30px;  */
 }
 
 input[type='text']::after {
@@ -127,53 +130,11 @@ input[type='text']::after {
   background-repeat: no-repeat;
 }
 
-/* input[type="email"]::before {
-  /* стилі для другого svg */
-/* } */
-
-/* і так далі для решти інпутів */
-
-/* .input-wrapper input {
-  padding-right: 30px;
-}
-
-.input-wrapper .input-icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-} */
 input.error {
   border: 2px solid red;
 }
-/* .input-wrapper {
-  position: relative;
-  margin-bottom: 35px;
-}
-
-.input-wrapper label {
-  position: absolute;
-  top: 15%;
-  left: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
-  transition: all 0.3s ease-in-out;
-}
-
-.input-wrapper input:focus-within + label {
-  top: -25px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-}
-.checkBox{
-    margin: 0px;
-} */
 /* CSS */
-.input-wrapper {
-  position: relative;
+.input-wrapper:not(.last) {
   margin-bottom: 35px;
 }
 
