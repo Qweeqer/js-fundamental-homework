@@ -50,6 +50,9 @@ svg.input-icon {
   height: 30px;
   padding: 5px;
   fill: blue;
+  /* ****************** */
+  border-radius: 50px;
+  background-color: #e3dbdb;
 }
 
 #full-name + svg.input-icon {
@@ -145,7 +148,7 @@ input[type='text']::after {
 input.error {
   border: 2px solid red;
 }
-.input-wrapper {
+/* .input-wrapper {
   position: relative;
   margin-bottom: 35px;
 }
@@ -167,4 +170,47 @@ input.error {
 }
 .checkBox{
     margin: 0px;
+} */
+/* CSS */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.input-wrapper label {
+  position: absolute;
+  left: 25px;
+  top: -5px;
+  font-weight: bold;
+  transition: transform 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.input-wrapper input:focus ~ label,
+.input-wrapper input:not(:placeholder-shown) ~ label {
+  /* transform: translateY(0); */
+  font-size: 16px;
+  font-weight: unset;
+  color: #333;
+}
+.labelListOnFocus {
+  transform: translateY(-23px);
+  background-color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.labelListOutFocus {
+  transform: translateY(0);
+  background-color: unset;
+  font-size: 16px;
+  font-weight: unset;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
