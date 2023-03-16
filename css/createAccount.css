@@ -5,12 +5,13 @@ body {
   flex-direction: column;
   background: url('../image/fon.jpg');
 }
+
 h1,
 p {
   margin: 0;
   text-align: center;
 }
-span{
+span {
   font-size: 15px;
   line-height: 1.36;
 }
@@ -20,7 +21,7 @@ form {
   flex-direction: column;
   align-items: center;
   border-radius: 50px;
-  background-color: #03a9f442;
+  background-color: #ffffff;
 }
 
 label {
@@ -29,7 +30,10 @@ label {
   margin-top: 20px;
   font-size: 18px;
 }
-
+label.labelListOnFocus {
+  color: #07f;
+  border-radius: 50px;
+}
 input {
   width: 40vw;
   padding: 10px;
@@ -55,7 +59,7 @@ svg.input-icon {
   fill: blue;
   /* ****************** */
   border-radius: 50px;
-  background-color: #e3dbdb;
+  /* background-color: #e3dbdb; */
 }
 
 #full-name + svg.input-icon {
@@ -153,11 +157,11 @@ input.error {
   /* transform: translateY(0); */
   font-size: 16px;
   font-weight: unset;
-  color: #333;
 }
 .labelListOnFocus {
   transform: translateY(-23px);
   background-color: white;
+  color: #07f;
   font-size: 12px;
   font-weight: bold;
 }
