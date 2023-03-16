@@ -10,12 +10,14 @@ h1,
 p {
   margin: 0;
   text-align: center;
+      padding: 10px;
 }
 span {
   font-size: 15px;
   line-height: 1.36;
 }
 form {
+  max-width: 400px;
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -35,6 +37,7 @@ label.labelListOnFocus {
   border-radius: 50px;
 }
 input {
+  max-width: 300px;
   width: 40vw;
   padding: 10px;
   margin-top: 5px;
@@ -94,6 +97,7 @@ input:focus {
 }
 
 button[type='submit'] {
+  max-width: 300px;
   width: 40vw;
   padding: 10px;
   background-color: #07f;
@@ -101,7 +105,7 @@ button[type='submit'] {
   border: none;
   border-radius: 50px;
   padding: 10px 20px;
-  /* margin-top: 20px; */
+  margin-top: 10px;
   cursor: pointer;
 }
 
@@ -144,7 +148,9 @@ input.error {
 .input-wrapper:not(.last) {
   margin-bottom: 35px;
 }
-
+.input-wrapper .checkbox {
+  margin-top: 10px;
+}
 .input-wrapper label {
   position: absolute;
   left: 25px;
