@@ -67,64 +67,7 @@
 // 2) Зробити поле для введення тексту. Після натиснення кнопки addPost введений текст вставляти в блок нижче поля для введення тексту.
 // Зробити додатково вивід кнопки збільшити та зменшити розмір шрифту, змінити колір шрифту та
 // селект де можна вибрати тип форматування тексту(Uppercase і тд).
-// const inputText = document.getElementById('input-text');
-// const addPostBtn = document.getElementById('add-post');
-// const postContainer = document.getElementById('post-container');
-// const increaseFontBtn = document.getElementById('increase-font');
-// const decreaseFontBtn = document.getElementById('decrease-font');
-// const fontSize = document.getElementById('font-size');
-// const textFormat = document.getElementById('text-format');
-// const textColor = document.getElementById('text-color');
 
-// let currentFontSize = 16;
-
-// // Додаємо обробник події для кнопки Add Post
-// addPostBtn.addEventListener('click', () => {
-//   // Отримуємо введений текст з поле введення
-//   const text = inputText.value;
-//   // Перевірка, що текст не пустий
-//   if (text.length < 1) {
-//     alert('Введіть текст поста');
-//     return;
-//   }
-//   // Створюємо новий елемент div з текстом
-//   const post = document.createElement('div');
-//   post.innerText = text;
-//   post.style.fontSize = `${currentFontSize}px`;
-//   // Застосовуємо форматування тексту
-//   switch (textFormat.value) {
-//     case 'uppercase':
-//       post.style.textTransform = 'uppercase';
-//       break;
-//     case 'lowercase':
-//       post.style.textTransform = 'lowercase';
-//       break;
-//     case 'capitalize':
-//       post.style.textTransform = 'capitalize';
-//       break;
-//     default:
-//       post.style.textTransform = 'none';
-//       break;
-//   }
-//   // Застосовуємо колір тексту
-//   post.style.color = textColor.value;
-//   // Додаємо елемент в контейнер
-//   postContainer.appendChild(post);
-//   // Очищаємо поле введення
-//   inputText.value = '';
-// });
-// // Додаємо обробники подій для кнопок Increase Font та Decrease Font
-// increaseFontBtn.addEventListener('click', () => {
-//   currentFontSize += 1;
-//   fontSize.innerText = `${currentFontSize}px`;
-// });
-// decreaseFontBtn.addEventListener('click', () => {
-//   if (currentFontSize > 1) {
-//     currentFontSize -= 1;
-//     fontSize.innerText = `${currentFontSize}px`;
-//   }
-// });
-// *******2************************************************************
 const inputText = document.getElementById('input-text');
 const addPostBtn = document.getElementById('add-post');
 const postContainer = document.getElementById('post-container');
@@ -349,3 +292,65 @@ input.addEventListener('input', function () {
     input.style.backgroundColor = 'red';
   }
 });
+
+
+
+// ***********************Нотатки*************************************
+// const inputText = document.getElementById('input-text');
+// const addPostBtn = document.getElementById('add-post');
+// const postContainer = document.getElementById('post-container');
+// const increaseFontBtn = document.getElementById('increase-font');
+// const decreaseFontBtn = document.getElementById('decrease-font');
+// const fontSize = document.getElementById('font-size');
+// const textFormat = document.getElementById('text-format');
+// const textColor = document.getElementById('text-color');
+
+// let currentFontSize = 16;
+
+// // Додаємо обробник події для кнопки Add Post
+// addPostBtn.addEventListener('click', () => {
+//   // Отримуємо введений текст з поле введення
+//   const text = inputText.value;
+//   // Перевірка, що текст не пустий
+//   if (text.length < 1) {
+//     alert('Введіть текст поста');
+//     return;
+//   }
+//   // Створюємо новий елемент div з текстом
+//   const post = document.createElement('div');
+//   post.innerText = text;
+//   post.style.fontSize = `${currentFontSize}px`;
+//   // Застосовуємо форматування тексту
+//   switch (textFormat.value) {
+//     case 'uppercase':
+//       post.style.textTransform = 'uppercase';
+//       break;
+//     case 'lowercase':
+//       post.style.textTransform = 'lowercase';
+//       break;
+//     case 'capitalize':
+//       post.style.textTransform = 'capitalize';
+//       break;
+//     default:
+//       post.style.textTransform = 'none';
+//       break;
+//   }
+//   // Застосовуємо колір тексту
+//   post.style.color = textColor.value;
+//   // Додаємо елемент в контейнер
+//   postContainer.appendChild(post);
+//   // Очищаємо поле введення
+//   inputText.value = '';
+// });
+// // Додаємо обробники подій для кнопок Increase Font та Decrease Font
+// increaseFontBtn.addEventListener('click', () => {
+//   currentFontSize += 1;
+//   fontSize.innerText = `${currentFontSize}px`;
+// });
+// decreaseFontBtn.addEventListener('click', () => {
+//   if (currentFontSize > 1) {
+//     currentFontSize -= 1;
+//     fontSize.innerText = `${currentFontSize}px`;
+//   }
+// });
+// *******2************************************************************
