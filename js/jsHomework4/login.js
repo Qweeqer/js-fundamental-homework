@@ -14,18 +14,21 @@ form.addEventListener('submit', function (event) {
 
   if (checkCredentials(email, password)) {
     errorMessage.textContent = '';
-    alert('Ви авторизовані');
+    Notiflix.Report.success('Success', 'Great! You are successfully authorized', 'OK');
+    // alert('Ви авторизовані');
     form.reset();
-      inputs.forEach(function (input) {
-        if (input.style.backgroundColor) {
-          input.style.backgroundColor = '';
-        }
-      });
-      labelList.forEach(function (label) {
-        label.classList.add('labelListOutFocus');
-      });
+    inputs.forEach(function (input) {
+      if (input.style.backgroundColor) {
+        input.style.backgroundColor = '';
+      }
+    });
+    labelList.forEach(function (label) {
+      label.classList.add('labelListOutFocus');
+    });
   } else {
-    errorMessage.textContent = 'Логін або Пароль не вірний';
+    Notiflix.Report.failure('Failure', 'The login or password is incorrect!', 'OK');
+    // errorMessage.textContent = 'Логін або Пароль не вірний';
+    form.reset();
   }
 });
 
