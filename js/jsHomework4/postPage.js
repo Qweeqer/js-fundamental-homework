@@ -354,3 +354,7 @@ input.addEventListener('input', function () {
 //   }
 // });
 // *******2************************************************************
+// All files with task can find at path:
+// https://github.com/Qweeqer/js-fundamental-homework/tree/main/js/jsHomework4
+// live page:
+// https://qweeqer.github.io/js-fundamental-homework/
