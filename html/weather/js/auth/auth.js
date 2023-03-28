@@ -127,7 +127,9 @@ export const showUserInfo = async () => {
 
 const hideUserInfo = () => {
   const userInfo = document.getElementById('UserInfo');
-  userInfo.style.display = 'none';
+  if (userInfo) {
+    userInfo.style.display = 'none';
+  }
 };
 
 const init = async () => {
