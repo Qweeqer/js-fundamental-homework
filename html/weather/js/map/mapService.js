@@ -49,10 +49,7 @@ export const updateMapCenter = (map, latitude, longitude, zoom = 5) => {
 export const map = initMap(50.450001, 30.523333, 5);
 
 // Оновлення центру карти після вибору міста
-export const fetchCityByGeolocationAndUpdateMap = async (
-  latitude,
-  longitude
-) => {
+export const fetchCityByGeolocationAndUpdateMap = async (latitude, longitude) => {
   const response = await fetch(
     `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${apiKey}`
   );
@@ -64,4 +61,18 @@ export const fetchCityByGeolocationAndUpdateMap = async (
     addMarkerToMap(map, latitude, longitude);
     fetchWeatherData(1);
   }
+};
+//функція для отримання назви міста за координатами.
+export const getCityName = async (latitude, longitude) => {
+  const response = await fetch(
+    `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}&accept-language=uk,en`
+  );
+
+  if (!response.ok) {
+    console.error('Не вдалося отримати назву міста');
+    return '';
+  }
+
+  const data = await response.json();
+  return data.address.city || data.address.town || data.address.village || '';
 };
