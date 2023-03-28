@@ -1,5 +1,5 @@
 import { apiKey, weatherList } from '../weather/weatherVariables.js';
-import { mapElement } from '../map/mapService.js';
+import { mapElement, getCityName } from '../map/mapService.js';
 // Отримання елементів модального вікна
 const modal = document.getElementById('myModal');
 const closeModal = document.querySelector('.closeWeatherModal');
@@ -19,10 +19,9 @@ const showWeatherDetailsInModal = async (latitude, longitude) => {
 
   const data = await response.json();
   const currentWeather = data.current;
-  console.log('currentWeather', currentWeather);
   const dailyWeather = data.daily[0];
-  console.log('dailyWeather', dailyWeather);
-  const hourlyWeather = data.hourly.slice(0, 12); // отримайте перші 12 годин годинного прогнозу
+  const hourlyWeather = data.hourly.slice(0, 12); // отримати перші 12 годин годинного прогнозу
+
 
   // Форматування даних
   const temperature = Math.round(currentWeather.temp) + '°C';
@@ -31,16 +30,35 @@ const showWeatherDetailsInModal = async (latitude, longitude) => {
   const windSpeed = currentWeather.wind_speed + ' м/с';
   const uvi = currentWeather.uvi;
   const skyStatus = currentWeather.weather[0].description;
+  //для отримання данних про місто та дату
+  const cityName = await getCityName(latitude, longitude);
+  const currentDate = new Date();
+  const currentDateString = currentDate.toLocaleDateString();
+  const currentTimeString = currentDate.toLocaleTimeString();
+  //Для додавання часу сходу та заходу сонця
+  const sunriseTimestamp = new Date(dailyWeather.sunrise * 1000);
+  const sunriseHours = sunriseTimestamp.getHours();
+  const sunriseMinutes = sunriseTimestamp.getMinutes().toString().padStart(2, '0');
+  const sunsetTimestamp = new Date(dailyWeather.sunset * 1000);
+  const sunsetHours = sunsetTimestamp.getHours();
+  const sunsetMinutes = sunsetTimestamp.getMinutes().toString().padStart(2, '0');
   // виклик
   const hourlyForecastHtml = displayHourlyForecast(hourlyWeather);
   // Вставка даних в modalWeatherInfo
   modalWeatherInfo.innerHTML = `
-    <p>Температура: ${temperature}</p>
+  <div class='mainInfoHead'>
+  <p>Місто: ${cityName}</p>
+    <p>Дата: ${currentDateString}</p>
+    <p>Час: ${currentTimeString}</p>
+  </div>
+    <p><i class="wi wi-thermometer"></i>  Температура: ${temperature}</p>
     <p>Відчувається як: ${feelsLike}</p>
-    <p>Вологість: ${humidity}</p>
-    <p>Швидкість вітру: ${windSpeed}</p>
-    <p>Індекс УФ-випромінювання: ${uvi}</p>
-    <p>Стан неба: ${skyStatus}</p>
+    <p><i class="wi wi-humidity"></i>  Вологість: ${humidity}</p>
+    <p><i class="wi wi-strong-wind"></i>  Швидкість вітру: ${windSpeed}</p>
+    <p><i class="wi wi-hot"></i>  Індекс УФ-випромінювання: ${uvi}</p>
+    <p><i class="wi wi-cloudy"></i>  Стан неба: ${skyStatus}</p>
+    <p><i class="wi wi-horizon-alt"></i>  Схід сонця: ${sunriseHours}:${sunriseMinutes}</p>
+    <p><i class="wi wi-horizon"></i>  Захід сонця: ${sunsetHours}:${sunsetMinutes}</p>
     <div class="hourly-forecast">
     ${hourlyForecastHtml}
   </div>
@@ -93,6 +111,8 @@ const displayHourlyForecast = hourlyWeather => {
     const temperature = Math.round(hour.temp) + '°C';
     const skyStatus = hour.weather[0].description;
     const precipitationProbability = (hour.pop * 100).toFixed(0) + '%';
+    const pressure = hour.pressure + ' гПа';
+    const visibility = hour.visibility / 1000 + ' км';
 
     hourlyForecastHtml += `
       <div class="hourly-forecast-item">
@@ -100,6 +120,9 @@ const displayHourlyForecast = hourlyWeather => {
         <p>Температура:<br> ${temperature}</p>
         <p>Стан неба: <br> ${skyStatus}<i class="wi wi-cloudy"></i></p>
         <p>Ймовірність опадів:<br> ${precipitationProbability} <i class="wi wi-raindrops"></i></p>
+        <p>Тиск:<br>${pressure} <i class="wi wi-barometer"></i></p>
+        <p>Видимість: ${visibility} <i class="wi wi-fog"></i></p>
+
       </div>
     `;
   });
