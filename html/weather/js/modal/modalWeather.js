@@ -19,7 +19,9 @@ const showWeatherDetailsInModal = async (latitude, longitude) => {
 
   const data = await response.json();
   const currentWeather = data.current;
+  console.log('currentWeather', currentWeather);
   const dailyWeather = data.daily[0];
+  console.log('dailyWeather', dailyWeather);
   const hourlyWeather = data.hourly.slice(0, 12); // отримайте перші 12 годин годинного прогнозу
 
   // Форматування даних
@@ -89,11 +91,15 @@ const displayHourlyForecast = hourlyWeather => {
     const timestamp = new Date(hour.dt * 1000);
     const hours = timestamp.getHours();
     const temperature = Math.round(hour.temp) + '°C';
+    const skyStatus = hour.weather[0].description;
+    const precipitationProbability = (hour.pop * 100).toFixed(0) + '%';
 
     hourlyForecastHtml += `
       <div class="hourly-forecast-item">
-        <p>${hours}:00</p>
-        <p>Температура: ${temperature}</p>
+        <p>Час:<br>${hours}:00</p>
+        <p>Температура:<br> ${temperature}</p>
+        <p>Стан неба: <br> ${skyStatus}<i class="wi wi-cloudy"></i></p>
+        <p>Ймовірність опадів:<br> ${precipitationProbability} <i class="wi wi-raindrops"></i></p>
       </div>
     `;
   });
