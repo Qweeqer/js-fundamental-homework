@@ -193,6 +193,7 @@ body.modal-open .addToSelected {
   width: 100%;
   border-collapse: collapse;
   color: white;
+  background-color: #817d7e52;
 }
 
 .hourly-forecast-item {
