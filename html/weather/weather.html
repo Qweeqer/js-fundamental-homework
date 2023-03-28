@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="./css/weather.css" />
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""
+    />
+    <link rel="stylesheet" href="./css/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="./css/weather-icons.css">
+<script
+  src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+  crossorigin=""
+></script>
+    <title>My Weather App</title>
+  </head>
+  <body>
+    <header>
+        <!-- ****************************************************** -->
+        <div id="dark"></div>
+
+  <div id="Register" style="display: none;">
+    <div class="form-class">
+      <button id="button-x1"><div id="x-icon"></div></button>
+      <h2>Register</h2>
+      <form id="register-form">
+        User Name <br>
+        <input type="text" id="first-name-input" name="firstName"><br>
+        Email<br>
+        <input type="text" id="email-input" name="email"><br>
+        Password<br>
+        <input type="password" id="password-input" name="password"><br>
+        Repeat Password<br>
+        <input type="password" id="confirm-password-input" name="confirmPassword"><br>
+        I agree to the Terms and Conditions
+        <input type="checkbox" id="agreeCheckbox"><br>
+        <input type="submit" value="Register" id="submitButton">
+    <p class="error-message"></p>  
+    </form>
+    </div>
+  </div>
+
+  <div id="Login" style="display: none;">
+    <div class="form-class">
+      <button id="button-x2"><div id="x-icon"></div></button>
+      <h2>Login</h2>
+      <form id="login-form">
+        Email<br>
+        <input type="text" id="email" name="email"><br>
+        Password<br>
+        <input type="password" id="password" name="password"><br>
+        <input type="submit" value="Login" id="loginButton">
+      </form>
+    </div>
+  </div>
+
+  <nav class="buttons">
+    <button id="reg-button">Register</button>
+    <button id="log-button">Login</button>
+  </nav>
+
+  <!-- *********************************************************************** -->
+  <h1><i class="wi wi-horizon-alt"></i>Прогноз погоди</h1>
+  <div>
+    <input id="city-input" class="CitySearch" type="text" placeholder="Введіть місто">
+    <label>
+      Темна тема:
+      <input type="checkbox" id="theme-switch" />
+    </label>
+  </div>
+
+  <div class="buttonWraper">
+    <button id="today-button" class="button">Погода на сьогодні</button>
+    <button id="three-day-button" class="button">Погода на 3 дні</button>
+    <button id="seven-day-button" class="button">Погода на 5 днів</button>
+  </div>
+
+  <ul id="weather-list" class="weather-wrapper"></ul>
+  <div id="map" style="width: 100%; height: 400px;"></div>
+
+  <div id="user-info" style="display: none;"></div>
+  <div id="UserInfo" style="display: none;"></div>
+<!-- ************************************************************* -->
+    <script type='module' src="./js/weather/weather.js"></script>
+    <script type='module' src="./js/auth/auth.js"></script>
+
+  </body>
+</html>
