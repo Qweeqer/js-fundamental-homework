@@ -1,0 +1,224 @@
+nav.buttons > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
+}
+#selected-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon-heart {
+  fill: yellow;
+  width: 32px;
+  height: 32px;
+}
+.inputSearch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.addToSelected {
+  position: relative;
+  right: 45px;
+  bottom: 4px;
+  background-color: unset;
+  border: unset;
+  box-shadow: none;
+}
+body.modal-open .addToSelected {
+  display: none;
+}
+.addToSelected:hover {
+  background-color: unset;
+  border: unset;
+  box-shadow: none;
+}
+.addToSelected > .icon-heart {
+  width: 18px;
+  height: 18px;
+  fill: #1d1d04;
+  transition: all 0.3s ease-in-out;
+}
+.addToSelected > .icon-heart:hover {
+  fill: rgb(255, 255, 3);
+  transform: scale(1.5);
+}
+.cityList {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.cityList li {
+  background-color: rgb(27 86 232 / 80%);
+  color: white;
+  border: unset;
+  /* padding: 20px; */
+  margin-top: 20px;
+  border-radius: 8px;
+  /* width: 280px; */
+  position: relative;
+  width: 90vw;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.cityList li div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.cityList button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+
+  bottom: 20px;
+  right: 20px;
+}
+
+.cityList p {
+  margin: 0;
+}
+
+.cityList i {
+  margin-left: 5px;
+}
+
+.cityList button:hover {
+  background-color: #ff1a1a;
+}
+#Selected {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://source.unsplash.com/1600x900/?nature,landscape');
+  background-size: cover;
+}
+/* Профіль модал */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url(https://source.unsplash.com/1600x900/?nature,landscape);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  border: 1px solid #888;
+  width: 100%;
+  /* height: 100vh; */
+
+  background-image: url(https://source.unsplash.com/1600x900/?nature,landscape);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  font-size: 36px;
+  box-sizing: border-box;
+}
+
+#user-info {
+  border: 5px inset white;
+  background-color: #9a8d8d82;
+}
+.close {
+  color: #fff;
+  /* float: right; */
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* ****************Погодинний прогноз************** */
+/* .modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+} */
+
+.closeWeatherModal {
+  color: #838383;
+  float: right;
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.closeWeatherModal:hover,
+.closeWeatherModal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.hourly-forecast {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  color: white;
+}
+
+.hourly-forecast-item {
+  display: table-row;
+}
+
+.hourly-forecast-item p {
+  display: table-cell;
+  padding: 8px;
+  border: 1px solid white;
+  text-align: center;
+}
+
+/* Мобільні стилі */
+@media screen and (max-width: 600px) {
+  .hourly-forecast {
+    display: block;
+  }
+
+  .hourly-forecast-item {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .hourly-forecast-item p {
+    flex: 1;
+    display: block;
+  }
+}
