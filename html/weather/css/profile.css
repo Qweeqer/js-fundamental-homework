@@ -122,6 +122,7 @@ body.modal-open .addToSelected {
 }
 
 .modal-content {
+  /* display: inline; */
   background-color: #fefefe;
   border: 1px solid #888;
   width: 100%;
@@ -133,7 +134,7 @@ body.modal-open .addToSelected {
   background-position: center;
   background-attachment: fixed;
   color: white;
-  font-size: 36px;
+  font-size: 30px;
   box-sizing: border-box;
 }
 
@@ -188,6 +189,12 @@ body.modal-open .addToSelected {
   text-decoration: none;
   cursor: pointer;
 }
+.mainInfoHead {
+  border-bottom: 10px double;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
 .hourly-forecast {
   display: table;
   width: 100%;
@@ -221,5 +228,11 @@ body.modal-open .addToSelected {
   .hourly-forecast-item p {
     flex: 1;
     display: block;
+  }
+  .mainInfoHead {
+    border-bottom: 10px double;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 }
