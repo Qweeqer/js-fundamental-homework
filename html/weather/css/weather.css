@@ -412,7 +412,7 @@ body.dark-theme li {
   background-color: transparent;
   border: none;
   color: white;
-  border-left: 4px solid white;
+  border-top: 4px solid white;
   /* padding: 0px; */
   height: 100%;
   margin: 0;
@@ -457,6 +457,7 @@ body.dark-theme li {
   #UserInfo {
     width: 100%;
     border-top: 4px solid white;
+    border-left: unset;
   }
 }
 @media screen and (min-width: 768px) {
@@ -491,5 +492,10 @@ body.dark-theme li {
   .buttons button:hover {
     background-color: #51c4c4;
     color: #ffff00;
+  }
+  #UserInfo {
+    /* width: 100%; */
+    border-top: unset;
+    border-left: 4px solid white;
   }
 }
