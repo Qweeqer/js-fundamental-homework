@@ -2,7 +2,7 @@
 
 //  перевірки наявності токена у localStorage.
 export function checkAuthorization() {
-  const authToken = localStorage.getItem('authToken');
+  const authToken = sessionStorage.getItem('authToken');
   if (!authToken) {
     alert('Please complete Authorization!');
     event.preventDefault(); // Заборонити перехід на сторінку
