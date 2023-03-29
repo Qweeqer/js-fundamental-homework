@@ -1,13 +1,12 @@
-// Перевірки авторизації користувача перед переходом на сторінку profile.html,
-
-//  перевірки наявності токена у localStorage.
-export function checkAuthorization() {
+export async function checkAuthorization() {
   const authToken = sessionStorage.getItem('authToken');
   if (!authToken) {
-    alert('Please complete Authorization!');
-    event.preventDefault(); // Заборонити перехід на сторінку
-    window.location.href = 'weather.html'; //  на сторінку входу
+    sessionStorage.setItem('unauthorizedRedirect', 'true');
+    window.location.href = 'weather.html';
   }
 }
-// // Виклик перевірки
-document.addEventListener('DOMContentLoaded', checkAuthorization);
+
+// Викликати checkAuthorization після завантаження сторінки
+document.addEventListener('DOMContentLoaded', () => {
+  checkAuthorization();
+});
