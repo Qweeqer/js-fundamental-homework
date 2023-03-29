@@ -97,13 +97,16 @@ export const handleLogout = async () => {
   try {
     await getLogOut();
     hideUserInfo();
-    const loginForm = document.getElementById('Login');
-    loginForm.style.display = 'block';
+    // const loginForm = document.getElementById('Login');
+    // loginForm.style.display = 'block';
+    const logOutForm = document.getElementById('logout-button');
+    window.location.href = './weather.html';
   } catch (error) {
     console.error(error);
     alert('Log Out Error');
   }
 };
+
 
 export const showUserInfo = async () => {
   const currentUser = await getCurrent();
@@ -127,6 +130,10 @@ export const showUserInfo = async () => {
 
 const hideUserInfo = () => {
   const userInfo = document.getElementById('UserInfo');
+  // userInfo.style.display = 'none';
+
+  const logoutButton = document.getElementById('logout-button');
+  // logoutButton.style.display = 'none';
   if (userInfo) {
     userInfo.style.display = 'none';
   }
