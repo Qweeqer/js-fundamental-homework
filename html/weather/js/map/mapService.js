@@ -76,3 +76,13 @@ export const getCityName = async (latitude, longitude) => {
   const data = await response.json();
   return data.address.city || data.address.town || data.address.village || '';
 };
+//функція, яка буде оновлювати маркер на карті та інформацію про місто:
+const onMapClick = async event => {
+  const { lat, lng } = event.latlng;
+  addMarkerToMap(map, lat, lng);
+  const cityName = await getCityName(lat, lng);
+  cityInput.value = cityName;
+  fetchWeatherData(1);
+};
+// обробник подій для карти, який буде слухати події кліку (onMapClick):
+map.on('click', onMapClick);
