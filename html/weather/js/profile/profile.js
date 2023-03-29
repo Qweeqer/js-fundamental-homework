@@ -1,5 +1,6 @@
-import { getCurrent, getLogOut, setToken, getHeaders } from '../auth/auth.js';
+import { showUserInfo, handleLogout } from '../auth/auth.js';
 import { getWeatherData } from '../weather/getWeatherData.js';
+import '../modal/profileModal.js';
 
 // знайти елемент з id "map"
 const mapElement = document.getElementById('map');
@@ -8,53 +9,9 @@ document.getElementById('home-button').addEventListener('click', () => {
   window.location.href = './weather.html';
 });
 
-const showProfileInfo = async () => {
-  const currentUser = await getCurrent();
 
-  if (!currentUser) {
-    console.error('No user found');
-    return;
-  }
+document.getElementById('logout-button').addEventListener('click', handleLogout);
 
-  const username = currentUser.name;
-  const userEmail = currentUser.email;
-  const userPassword = currentUser.password;
-
-  const userInfo = document.getElementById('user-info');
-  userInfo.innerHTML = `
-    <p>Ім'я: ${username}</p>
-    <p>Email: ${userEmail}</p>
-    <p>Пароль: ${userPassword}</p>
-  `;
-  userInfo.style.display = 'block';
-};
-
-const handleLogout = async () => {
-  try {
-    await getLogOut();
-    hideUserInfo();
-    const logOutForm = document.getElementById('logout-button');
-    window.location.href = './weather.html';
-  } catch (error) {
-    console.error(error);
-    alert('Log Out Error');
-  }
-};
-document
-  .getElementById('profile-button')
-  .addEventListener('click', showProfileInfo);
-
-document
-  .getElementById('logout-button')
-  .addEventListener('click', handleLogout);
-
-const hideUserInfo = () => {
-  const userInfo = document.getElementById('UserInfo');
-  userInfo.style.display = 'none';
-
-  const logoutButton = document.getElementById('logout-button');
-  logoutButton.style.display = 'none';
-};
 // Ми використаємо localStorage для зберігання списку обраних міст.
 const selectedCitiesKey = 'selectedCities';
 
@@ -176,31 +133,3 @@ selectedButton.addEventListener('click', async () => {
   darkOverlay.style.display = 'block';
 });
 
-// ПРОФІЛЬ МОДАЛ
-const profileButton = document.getElementById('profile-button');
-const profileModal = document.getElementById('profile-modal');
-const closeProfileModal = document.getElementById('close-profile-modal');
-const userInfo = document.getElementById('user-info');
-
-profileButton.addEventListener('click', async () => {
-  const currentUser = await getCurrent();
-  if (currentUser) {
-    userInfo.innerHTML = `
-      <p>Ім'я: ${currentUser.name}</p>
-      <p>Email: ${currentUser.email}</p>
-    `;
-    profileModal.style.display = 'block';
-  } else {
-    alert('Будь ласка, увійдіть, щоб побачити інформацію про користувача');
-  }
-});
-
-closeProfileModal.addEventListener('click', () => {
-  profileModal.style.display = 'none';
-});
-
-window.addEventListener('click', event => {
-  if (event.target === profileModal) {
-    profileModal.style.display = 'none';
-  }
-});
