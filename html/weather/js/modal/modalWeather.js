@@ -22,7 +22,6 @@ const showWeatherDetailsInModal = async (latitude, longitude) => {
   const dailyWeather = data.daily[0];
   const hourlyWeather = data.hourly.slice(0, 12); // отримати перші 12 годин годинного прогнозу
 
-
   // Форматування даних
   const temperature = Math.round(currentWeather.temp) + '°C';
   const feelsLike = Math.round(currentWeather.feels_like) + '°C';
@@ -46,7 +45,7 @@ const showWeatherDetailsInModal = async (latitude, longitude) => {
   const hourlyForecastHtml = displayHourlyForecast(hourlyWeather);
   // Вставка даних в modalWeatherInfo
   modalWeatherInfo.innerHTML = `
-  <h1><i class="wi wi-horizon-alt"></i>Прогноз погоди</h1>
+  <h1 style='margin:0'><i class="wi wi-horizon-alt"></i>Прогноз погоди</h1>
   <div class='mainInfoHead'>
   <p>Місто: ${cityName}</p>
     <p>Дата: ${currentDateString}</p>
