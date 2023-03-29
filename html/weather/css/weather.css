@@ -274,23 +274,6 @@ body.dark-theme li {
   --text-pop-up: darkcyan;
 }
 
-/* Body */
-/* html {
-  height: 100%;
-} */
-
-/* body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  position: relative;
-  font-family: 'Comfortaa', cursive;
-  height: 100%;
-  background-image: url('https://source.unsplash.com/1600x900/?nature,landscape');
-  background-size: cover;
-  background-position: top, bottom;
-} */
-
 /* Dark Overlay */
 #dark {
   position: absolute;

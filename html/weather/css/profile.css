@@ -57,10 +57,8 @@ body.modal-open .addToSelected {
   background-color: rgb(27 86 232 / 80%);
   color: white;
   border: unset;
-  /* padding: 20px; */
   margin-top: 20px;
   border-radius: 8px;
-  /* width: 280px; */
   position: relative;
   width: 90vw;
   display: flex;
