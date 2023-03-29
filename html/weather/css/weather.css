@@ -476,7 +476,7 @@ body.dark-theme li {
   }
   .buttons button {
     box-sizing: border-box;
-    width: 8em;
+    width: 25%;
     padding: 1em;
     font-size: 1.3em;
     font-family: 'Comfortaa', cursive;
