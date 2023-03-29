@@ -7,11 +7,11 @@ let token = '';
 
 export const setToken = newToken => {
   token = newToken;
-  localStorage.setItem('authToken', newToken);
+  sessionStorage.setItem('authToken', newToken);
 };
 
-// Відновлюємо токен з localStorage
-const storedToken = localStorage.getItem('authToken');
+// Відновлюємо токен з sessionStorage
+const storedToken = sessionStorage.getItem('authToken');
 if (storedToken) {
   token = storedToken;
 }
