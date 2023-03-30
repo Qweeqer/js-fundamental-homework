@@ -109,7 +109,7 @@ body.modal-open .addToSelected {
   background-image: url('https://source.unsplash.com/1600x900/?nature,landscape');
   background-size: cover;
 }
-#Selected #button-x2{
+#Selected #button-x2 {
   padding: 8px;
 }
 /* Профіль модал */
@@ -144,6 +144,10 @@ body.modal-open .addToSelected {
 }
 div#modalWeatherInfo > p {
   padding: 15px;
+}
+#modalWeatherInfo > p:hover,
+#modalWeatherInfo > div:hover {
+  color: yellow;
 }
 #user-info {
   border: 5px inset white;
