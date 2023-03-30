@@ -29,9 +29,7 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
     return;
   }
 
-  const response = await fetch(
-    `${apiUrl}?q=${city}&units=metric&appid=${apiKey}`
-  );
+  const response = await fetch(`${apiUrl}?q=${city}&units=metric&appid=${apiKey}`);
 
   if (!response.ok) {
     console.error(
@@ -60,9 +58,7 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
     );
     const uviData = await uviResponse.json();
     const uviStr = uviData.value;
-    const precipitationStr = data.weather[0].description.includes('дощ')
-      ? 'Так'
-      : 'Ні';
+    const precipitationStr = data.weather[0].description.includes('дощ') ? 'Так' : 'Ні';
 
     weatherData = [
       {
@@ -83,9 +79,8 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
       },
     ];
   } else {
-    weatherData = data.list
-      .filter((_, index) => index % 8 === 0)
-      .slice(0, daysToShow);
+    const days = numDays === 7 ? 7 : 3;
+    weatherData = data.list.filter((_, index) => index % 8 === 0).slice(0, days);
   }
 
   weatherData.forEach(weather => {
@@ -118,12 +113,10 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
         }
       } else {
         if (weatherItem.hasAttribute('data-latitude')) {
-          weatherItem.dataset.latitude =
-            weatherItem.getAttribute('data-latitude');
+          weatherItem.dataset.latitude = weatherItem.getAttribute('data-latitude');
         }
         if (weatherItem.hasAttribute('data-longitude')) {
-          weatherItem.dataset.longitude =
-            weatherItem.getAttribute('data-longitude');
+          weatherItem.dataset.longitude = weatherItem.getAttribute('data-longitude');
         }
         console.error('Неможливо отримати координати погоди');
       }
@@ -141,25 +134,15 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
   <p class="DegStyled">Температура: ${tempStr}</p>
   <p>Вологість: ${humidityStr}</p>
   <p class="WindStyled">Швидкість вітру: ${windStr} <i class="wi wi-strong-wind"></i></p>
-  ${
-    numDays === 1
-      ? `<p>Тиск: ${weather.main.pressure} <i class="wi wi-barometer"></i></p>`
-      : ''
-  }
-  ${
-    numDays === 1
-      ? `<p>Видимість: ${weather.main.visibility} <i class="wi wi-fog"></i></p>`
-      : ''
-  }
+  ${numDays === 1 ? `<p>Тиск: ${weather.main.pressure} <i class="wi wi-barometer"></i></p>` : ''}
+  ${numDays === 1 ? `<p>Видимість: ${weather.main.visibility} <i class="wi wi-fog"></i></p>` : ''}
   ${
     numDays === 1
       ? `<p>Стан неба: ${weather.weather[0].skyStatus} <i class="wi wi-cloudy"></i></p>`
       : ''
   }
   ${
-    numDays === 1
-      ? `<p>Індекс УФ-випромінювання: ${weather.uvi} <i class="wi wi-hot"></i></p>`
-      : ''
+    numDays === 1 ? `<p>Індекс УФ-випромінювання: ${weather.uvi} <i class="wi wi-hot"></i></p>` : ''
   }
   ${
     numDays === 1
@@ -209,10 +192,7 @@ const initApp = async () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       position => {
-        fetchCityByGeolocation(
-          position.coords.latitude,
-          position.coords.longitude
-        );
+        fetchCityByGeolocation(position.coords.latitude, position.coords.longitude);
       },
       error => {
         console.error(error);
