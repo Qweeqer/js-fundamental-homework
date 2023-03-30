@@ -427,8 +427,8 @@ body.dark-theme li {
   color: #ffff00;
 }
 
-#map {
-  height: 600px;
+div#map {
+ height: 600px !important;
 }
 /* Медіазапит для екранів з шириною 768px і більше */
 
