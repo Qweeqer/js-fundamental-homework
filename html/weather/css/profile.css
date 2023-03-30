@@ -23,6 +23,7 @@ nav.buttons > button {
   position: relative;
   right: 45px;
   bottom: 4px;
+  padding: 0px;
   background-color: unset;
   border: unset;
   box-shadow: none;
@@ -138,7 +139,9 @@ body.modal-open .addToSelected {
   font-size: 30px;
   box-sizing: border-box;
 }
-
+div#modalWeatherInfo > p {
+  padding: 15px;
+}
 #user-info {
   border: 5px inset white;
   background-color: #9a8d8d82;
