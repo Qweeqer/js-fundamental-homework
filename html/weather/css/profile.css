@@ -51,6 +51,9 @@ body.modal-open .addToSelected {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  background-image: url(https://source.unsplash.com/1600x900/?nature,landscape);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .cityList li {
