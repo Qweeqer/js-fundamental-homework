@@ -109,6 +109,9 @@ body.modal-open .addToSelected {
   background-image: url('https://source.unsplash.com/1600x900/?nature,landscape');
   background-size: cover;
 }
+#Selected #button-x2{
+  padding: 8px;
+}
 /* Профіль модал */
 .modal {
   display: none;

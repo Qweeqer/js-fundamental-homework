@@ -276,6 +276,7 @@ body.dark-theme li {
   position: absolute;
   top: 0;
   right: 0;
+  padding: 5px;
   outline: none;
   border: none;
   border-top-right-radius: 0.5em;
@@ -320,7 +321,7 @@ body.dark-theme li {
   display: block;
   background-color: var(--back-pop-up);
   z-index: 1000;
-  /* width: 25em; */
+  width: 60%;
   text-align: center;
   box-sizing: border-box;
   border-radius: 0.5em;
@@ -334,6 +335,7 @@ body.dark-theme li {
 }
 
 .form-class form {
+  width: 70%;
   font-size: 1em;
   margin: 0 auto;
   display: inline-block;
@@ -428,7 +430,7 @@ body.dark-theme li {
 }
 
 div#map {
- height: 600px !important;
+  height: 600px !important;
 }
 /* Медіазапит для екранів з шириною 768px і більше */
 
