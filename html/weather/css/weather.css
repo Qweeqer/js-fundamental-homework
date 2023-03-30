@@ -1,7 +1,7 @@
 /* CSS code with Google Fonts imported */
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
 body {
-  font-family: Arial, "Helvetica Neue", sans-serif;
+  font-family: Arial, 'Helvetica Neue', sans-serif;
   text-align: center;
   /* background-image: url(./images/svitanok.jpg); */
   /* background-size: cover; */
@@ -17,7 +17,7 @@ body {
   margin: 0;
   width: 100%;
   position: relative;
-  font-family: 'Comfortaa', "Helvetica Neue", cursive;
+  font-family: 'Comfortaa', 'Helvetica Neue', cursive;
   height: 100%;
   background-image: url('https://source.unsplash.com/1600x900/?nature,landscape');
   background-size: cover;
@@ -189,6 +189,8 @@ button:hover,
   width: 95%;
   /* flex: 0 0 90%; */
   margin: 10px auto;
+  gap: 30px;
+  padding: 15px;
   font-size: 45px;
   border-radius: 5px;
 }
@@ -233,7 +235,6 @@ body.dark-theme li {
 }
 
 /* -------------------------Navbar---------------- */
-
 
 /* Variables */
 :root {
@@ -329,7 +330,7 @@ body.dark-theme li {
 .form-class input {
   font-size: 1em;
   margin-bottom: 1em;
-  font-family: 'Comfortaa', "Helvetica Neue", cursive;
+  font-family: 'Comfortaa', 'Helvetica Neue', cursive;
   outline-color: var(--text-pop-up);
   box-sizing: border-box;
 }
@@ -375,7 +376,7 @@ body.dark-theme li {
   /* width: 8em; */
   padding: 1em;
   font-size: 1.3em;
-  font-family: 'Comfortaa', "Helvetica Neue", cursive;
+  font-family: 'Comfortaa', 'Helvetica Neue', cursive;
   background-color: transparent;
   border: none;
   color: white;
@@ -399,7 +400,7 @@ body.dark-theme li {
   margin: 0;
   padding: 1em;
   font-size: 1.3em;
-  font-family: 'Comfortaa', "Helvetica Neue", cursive;
+  font-family: 'Comfortaa', 'Helvetica Neue', cursive;
   background-color: transparent;
   border: none;
   color: white;
@@ -456,7 +457,7 @@ body.dark-theme li {
     width: 25%;
     padding: 1em;
     font-size: 1.3em;
-   font-family: 'Comfortaa', "Helvetica Neue", cursive;
+    font-family: 'Comfortaa', 'Helvetica Neue', cursive;
     background-color: transparent;
     border: none;
     color: white;
