@@ -19,6 +19,7 @@ const showWeatherDetailsInModal = async (latitude, longitude) => {
 
   const data = await response.json();
   const currentWeather = data.current;
+  // console.log('data', data);
   const dailyWeather = data.daily[0];
   const hourlyWeather = data.hourly.slice(0, 12); // отримати перші 12 годин годинного прогнозу
 
@@ -29,6 +30,7 @@ const showWeatherDetailsInModal = async (latitude, longitude) => {
   const windSpeed = currentWeather.wind_speed + ' м/с';
   const uvi = currentWeather.uvi;
   const skyStatus = currentWeather.weather[0].description;
+  // console.log('currenWeather', currentWeather);
   //для отримання данних про місто та дату
   const cityName = await getCityName(latitude, longitude);
   const currentDate = new Date();
