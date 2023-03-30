@@ -115,21 +115,17 @@ img {
   color: #1e2432;
   text-align: center;
 }
-
-@media screen and (max-width: 767px) {
-  .IconStyled {
-    font-size: 3rem;
-  }
+/* -------------city-marker-container-----------------------------/  */
+.city-marker-container {
+  display: flex;
+  align-items: center;
 }
 
-.DegStyled {
-  font-size: 16px;
-}
-
-@media screen and (max-width: 750px) {
-  .DegStyled {
-    font-size: 14px;
-  }
+.WeatherWrapper > p,
+.WeatherWrapper > h3,
+.DegStyled,
+.city-marker-container {
+  font-size: 45px;
 }
 
 .WindStyled {
@@ -188,47 +184,27 @@ button:hover,
 }
 
 /* Медіазапит для екранів з шириною від 320px до 767px */
-@media screen and (max-width: 767px) {
-  .WeatherWrapper {
-    width: 95%;
-    /* flex: 0 0 90%; */
-    margin: 10px auto;
-    font-size: 25px;
-    border-radius: 5px;
-  }
-  p,
-  h3,
-  h4 {
-    margin: 5px;
-  }
-  .button {
-    border-radius: 5px;
-  }
-  .form-class {
-    width: 95%;
-  }
-  .weather-wrapper {
-    display: block;
-  }
-}
 
-/* Медіазапит для екранів з шириною 768px і більше */
-@media screen and (min-width: 768px) {
-  .weather-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .form-class {
-    width: 25em;
-  }
-  .WeatherWrapper {
-    flex: 0 0 calc(33.3333% - 20px);
-    transition: transform 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
-  }
-  .WeatherWrapper:hover {
-    transform: scale(1.05);
-  }
+.WeatherWrapper {
+  width: 95%;
+  /* flex: 0 0 90%; */
+  margin: 10px auto;
+  font-size: 45px;
+  border-radius: 5px;
+}
+p,
+h3,
+h4 {
+  margin: 5px;
+}
+.button {
+  border-radius: 5px;
+}
+.form-class {
+  width: 95%;
+}
+.weather-wrapper {
+  display: block;
 }
 
 /* ... */
@@ -255,15 +231,7 @@ body.dark-theme li {
   background-color: #1c1c1c;
   border: unset;
 }
-/* -------------city-marker-container-----------------------------/ */
-.city-marker-container {
-  display: flex;
-  align-items: center;
-}
-.city-marker,
-.city-name {
-  padding: 5px;
-}
+
 /* -------------------------Navbar---------------- */
 /* CSS code with Google Fonts imported */
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
@@ -273,23 +241,6 @@ body.dark-theme li {
   --back-pop-up: #d18413;
   --text-pop-up: darkcyan;
 }
-
-/* Body */
-/* html {
-  height: 100%;
-} */
-
-/* body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  position: relative;
-  font-family: 'Comfortaa', cursive;
-  height: 100%;
-  background-image: url('https://source.unsplash.com/1600x900/?nature,landscape');
-  background-size: cover;
-  background-position: top, bottom;
-} */
 
 /* Dark Overlay */
 #dark {
@@ -429,7 +380,7 @@ body.dark-theme li {
   background-color: transparent;
   border: none;
   color: white;
-  border-left: 4px solid white;
+  border-top: 4px solid white;
   /* padding: 0px; */
   height: 100%;
   margin: 0;
@@ -462,7 +413,13 @@ body.dark-theme li {
   background-color: #51c4c4;
   color: #ffff00;
 }
-@media screen and (max-width: 767px) {
+
+#map {
+  height: 600px;
+}
+/* Медіазапит для екранів з шириною 768px і більше */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
   .buttons {
     display: flex;
     width: 100%;
@@ -472,8 +429,12 @@ body.dark-theme li {
   }
 
   #UserInfo {
-    width: 100%;
+    /* width: 25%; */
     border-top: 4px solid white;
+    border-left: unset;
+  }
+  .IconStyled {
+    font-size: 3rem;
   }
 }
 @media screen and (min-width: 768px) {
@@ -493,7 +454,7 @@ body.dark-theme li {
   }
   .buttons button {
     box-sizing: border-box;
-    width: 8em;
+    width: 25%;
     padding: 1em;
     font-size: 1.3em;
     font-family: 'Comfortaa', cursive;
@@ -509,4 +470,33 @@ body.dark-theme li {
     background-color: #51c4c4;
     color: #ffff00;
   }
+  #UserInfo {
+    /* width: 100%; */
+    border-top: unset;
+    border-left: 4px solid white;
+  }
+  .weather-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .form-class {
+    width: 25em;
+  }
+  .WeatherWrapper {
+    /* flex: 0 0 calc(33.3333% - 20px); */
+    transition: transform 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .WeatherWrapper:hover {
+    transform: scale(1.05);
+  }
+  .WeatherWrapper > p,
+  .WeatherWrapper > h3,
+  .DegStyled,
+  .city-marker-container {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 768px) {
 }

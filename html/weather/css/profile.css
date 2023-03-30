@@ -51,16 +51,17 @@ body.modal-open .addToSelected {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  background-image: url(https://source.unsplash.com/1600x900/?nature,landscape);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .cityList li {
   background-color: rgb(27 86 232 / 80%);
   color: white;
   border: unset;
-  /* padding: 20px; */
   margin-top: 20px;
   border-radius: 8px;
-  /* width: 280px; */
   position: relative;
   width: 90vw;
   display: flex;

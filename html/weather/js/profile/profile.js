@@ -9,7 +9,6 @@ document.getElementById('home-button').addEventListener('click', () => {
   window.location.href = './weather.html';
 });
 
-
 document.getElementById('logout-button').addEventListener('click', handleLogout);
 
 // Ми використаємо localStorage для зберігання списку обраних міст.
@@ -25,6 +24,9 @@ const addCityToSelected = city => {
   if (!cities.includes(city)) {
     cities.push(city);
     localStorage.setItem(selectedCitiesKey, JSON.stringify(cities));
+  } else if (cities.includes(city)) {
+    alert('Місто вже є в обраному');
+    return;
   }
 };
 
@@ -132,4 +134,3 @@ selectedButton.addEventListener('click', async () => {
   selectedModal.style.display = 'block';
   darkOverlay.style.display = 'block';
 });
-
