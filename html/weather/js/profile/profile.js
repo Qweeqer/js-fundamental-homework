@@ -77,6 +77,7 @@ selectedButton.addEventListener('click', async () => {
     try {
       const weatherData = await getWeatherData(city);
       const weatherInfo = document.createElement('div');
+      weatherInfo.classList.add('selectedList');
       weatherInfo.innerHTML = `
         <p>Температура: ${weatherData.main.temp}°C</p>
         <p>Вітер: ${weatherData.wind.speed} м/с <i class="wi wi-strong-wind"></i></p>
