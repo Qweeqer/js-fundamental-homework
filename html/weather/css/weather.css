@@ -34,8 +34,10 @@ h1:hover {
   margin: 5px;
 }
 #city-input {
-  width: 30%;
+  width: 50%;
+  height: 150px;
   padding: 10px 10px;
+  font-size: 50px;
   box-shadow: inset 2px 3px 2px rgb(0 0 0 / 48%);
 }
 
@@ -47,9 +49,11 @@ button {
 .buttonWraper {
   display: flex;
   justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  max-width: 95%;
   margin-top: 10px;
-  width: 100%;
-  height: 120px;
+  height: 150px;
   gap: 2%;
 }
 ul {
@@ -110,7 +114,19 @@ img {
   margin-top: 10px;
   font-size: 1.25em;
 }
-
+.labelCheckBox{
+  font-size: 50px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    align-content: center;
+}
+.themCheckBox{
+      margin-left: 20px;
+    width: 25px;
+    height: 25px;
+  
+}
 .DateWrapper {
   font-size: 1.25em;
   font-weight: 600;
@@ -157,7 +173,7 @@ img {
   padding: 8px 16px;
   border-radius: 50px;
   border: unset;
-  font-size: 16px;
+  font-size: 50px;
   font-weight: bold;
   background-color: #2196f3;
   color: #fff;
@@ -213,7 +229,7 @@ h4 {
   margin: 5px;
 }
 .button {
-  border-radius: 5px;
+  border-radius: 25px;
 }
 .form-class {
   width: 95%;
@@ -432,6 +448,7 @@ body.dark-theme li {
 div#map {
   height: 600px !important;
 }
+
 /* Медіазапит для екранів з шириною 768px і більше */
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 767px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -442,7 +459,9 @@ div#map {
     justify-content: center;
     align-items: center;
   }
-
+nav.buttons{
+  font-size: 45px;
+}
   #UserInfo {
     width: 100%;
     border-top: 4px solid white;
@@ -509,8 +528,10 @@ div#map {
   .buttonWraper {
     display: flex;
     justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 90%;
     margin-top: 10px;
-    width: unset;
     height: auto;
     gap: 2%;
   }
@@ -522,5 +543,29 @@ div#map {
   .DegStyled,
   .city-marker-container {
     font-size: 30px;
+  }
+  #city-input {
+    width: 30%;
+    height: unset;
+    font-size: 20px;
+  }
+  button.addToSelected {
+    right: 45px;
+  }
+  .addToSelected > svg.icon-heart {
+    width: 16px;
+    height: 16px;
+  }
+  label.labelCheckBox {
+    align-items: center;
+    font-size: 16px;
+  }
+  input.themCheckBox {
+    width: 16px;
+    height: 16px;
+  }
+  .buttonWraper > button.button {
+    font-size: 20px;
+    border-radius: 50px;
   }
 }
