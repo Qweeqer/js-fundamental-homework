@@ -472,6 +472,45 @@ div#map {
   .IconStyled {
     font-size: 3rem;
   }
+  .form-class {
+    width: 95%;
+    height: auto;
+    font-size: 45px;
+  }
+  .form-class form {
+    width: 80%;
+  }
+  #x-icon {
+    height: 70px;
+    width: 70px;
+  }
+  .mainCheckBox {
+    display: flex;
+    gap: 5%;
+    align-items: flex-start;
+  }
+  .mainCheckBox input[type='checkbox'] {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  .error-message {
+    color: rgb(255, 9, 9);
+  }
+  .cityList {
+    font-size: 50px;
+    margin-top: 70px;
+    max-width: 100%;
+    display: flex;
+  }
+  .cityList > li > div.selectedList {
+    gap: 30px;
+  }
+  .deleteCityButton {
+    font-size: 50px;
+    border-radius: 10px;
+  }
 }
 @media screen and (min-device-width: 768px) {
   #reg-button,
