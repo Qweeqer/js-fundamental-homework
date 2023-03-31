@@ -511,6 +511,12 @@ div#map {
     font-size: 50px;
     border-radius: 10px;
   }
+  .hourly-forecast > .hourly-forecast-item > p {
+    display: block;
+  }
+  #modalWeatherInfo {
+    font-size: 50px;
+  }
 }
 @media screen and (min-device-width: 768px) {
   #reg-button,
