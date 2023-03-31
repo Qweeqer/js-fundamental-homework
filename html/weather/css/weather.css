@@ -516,6 +516,12 @@ div#map {
   }
   #modalWeatherInfo {
     font-size: 50px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+  }
+  #modalWeatherInfo > h1.modalTitle {
+    margin: 35px;
   }
 }
 @media screen and (min-device-width: 768px) {
