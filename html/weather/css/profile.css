@@ -21,7 +21,7 @@ nav.buttons > button {
 }
 .addToSelected {
   position: relative;
-  right: 45px;
+  right: 70px;
   bottom: 4px;
   padding: 0px;
   background-color: unset;
@@ -37,14 +37,27 @@ body.modal-open .addToSelected {
   box-shadow: none;
 }
 .addToSelected > .icon-heart {
-  width: 18px;
-  height: 18px;
+  width: 50px;
+  height: 50px;
   fill: #1d1d04;
   transition: all 0.3s ease-in-out;
 }
 .addToSelected > .icon-heart:hover {
   fill: rgb(255, 255, 3);
   transform: scale(1.5);
+}
+.labelCheckBox{
+  font-size: 50px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    align-content: center;
+}
+.themCheckBox{
+      margin-left: 20px;
+    width: 25px;
+    height: 25px;
+  
 }
 .cityList {
   list-style-type: none;
@@ -109,6 +122,9 @@ body.modal-open .addToSelected {
   background-image: url('https://source.unsplash.com/1600x900/?nature,landscape');
   background-size: cover;
 }
+#Selected #button-x2 {
+  padding: 8px;
+}
 /* Профіль модал */
 .modal {
   display: none;
@@ -141,6 +157,10 @@ body.modal-open .addToSelected {
 }
 div#modalWeatherInfo > p {
   padding: 15px;
+}
+#modalWeatherInfo > p:hover,
+#modalWeatherInfo > div:hover {
+  color: yellow;
 }
 #user-info {
   border: 5px inset white;
