@@ -18,6 +18,8 @@ nav.buttons > button {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
 }
 .addToSelected {
   position: relative;
@@ -46,18 +48,18 @@ body.modal-open .addToSelected {
   fill: rgb(255, 255, 3);
   transform: scale(1.5);
 }
-.labelCheckBox{
+.labelCheckBox {
+  margin-bottom: 20px;
   font-size: 50px;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  align-content: center;
 }
-.themCheckBox{
-      margin-left: 20px;
-    width: 25px;
-    height: 25px;
-  
+.themCheckBox {
+  margin-left: 20px;
+  width: 25px;
+  height: 25px;
 }
 .cityList {
   list-style-type: none;
@@ -159,8 +161,11 @@ div#modalWeatherInfo > p {
   padding: 15px;
 }
 #modalWeatherInfo > p:hover,
-#modalWeatherInfo > div:hover {
+#modalWeatherInfo > p:focus,
+#modalWeatherInfo > div:hover,
+#modalWeatherInfo > div:focus {
   color: yellow;
+  background-color: #5091ff8f;
 }
 #user-info {
   border: 5px inset white;

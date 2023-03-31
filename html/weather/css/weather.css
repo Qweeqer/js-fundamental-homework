@@ -52,7 +52,6 @@ button {
   margin: 0 auto;
   padding: 0;
   max-width: 95%;
-  margin-top: 10px;
   height: 150px;
   gap: 2%;
 }
@@ -114,18 +113,17 @@ img {
   margin-top: 10px;
   font-size: 1.25em;
 }
-.labelCheckBox{
+.labelCheckBox {
   font-size: 50px;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  align-content: center;
 }
-.themCheckBox{
-      margin-left: 20px;
-    width: 25px;
-    height: 25px;
-  
+.themCheckBox {
+  margin-left: 20px;
+  width: 25px;
+  height: 25px;
 }
 .DateWrapper {
   font-size: 1.25em;
@@ -459,9 +457,9 @@ div#map {
     justify-content: center;
     align-items: center;
   }
-nav.buttons{
-  font-size: 45px;
-}
+  nav.buttons {
+    font-size: 45px;
+  }
   #UserInfo {
     width: 100%;
     border-top: 4px solid white;
@@ -516,7 +514,7 @@ nav.buttons{
     justify-content: center;
   }
   .form-class {
-    width: 25em;
+    width: 32em;
   }
   .WeatherWrapper {
     /* flex: 0 0 calc(33.3333% - 20px); */
