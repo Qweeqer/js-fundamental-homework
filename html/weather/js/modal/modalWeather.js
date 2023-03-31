@@ -47,7 +47,7 @@ const showWeatherDetailsInModal = async (latitude, longitude) => {
   const hourlyForecastHtml = displayHourlyForecast(hourlyWeather);
   // Вставка даних в modalWeatherInfo
   modalWeatherInfo.innerHTML = `
-  <h1 style='margin:0'><i class="wi wi-horizon-alt"></i>Прогноз погоди</h1>
+  <h1><i class="wi wi-horizon-alt"></i>Прогноз погоди</h1>
   <div class='mainInfoHead'>
   <p>Місто: ${cityName}</p>
     <p>Дата: ${currentDateString}</p>
