@@ -245,10 +245,14 @@ body.dark-theme {
   color: #f0f0f0;
 }
 
-body.dark-theme button {
+body.dark-theme button,
+body.dark-theme #UserInfo {
   background-color: #1c1c1c;
   color: #f0f0f0;
   border: 1px solid #f0f0f0;
+}
+body.dark-theme #UserInfo > p {
+  margin: 5px;
 }
 body.dark-theme button.addToSelected {
   background-color: unset;
