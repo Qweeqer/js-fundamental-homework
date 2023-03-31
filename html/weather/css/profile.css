@@ -193,7 +193,7 @@ div#modalWeatherInfo > p {
   /* * */
   color: #838383;
   float: right;
-  font-size: 80px;
+  /* font-size: 80px; */
   font-weight: bold;
 }
 
