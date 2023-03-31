@@ -119,7 +119,7 @@ const displayHourlyForecast = hourlyWeather => {
     hourlyForecastHtml += `
       <div class="hourly-forecast-item">
         <p>Час:<br>${hours}:00</p>
-        <p>Температура:<br> ${temperature}</p>
+        <p><i class="wi wi-thermometer"></i> Температура:<br> ${temperature}</p>
         <p>Стан неба: <br> ${skyStatus}<i class="wi wi-cloudy"></i></p>
         <p>Ймовірність опадів:<br> ${precipitationProbability} <i class="wi wi-raindrops"></i></p>
         <p>Тиск:<br>${pressure} <i class="wi wi-barometer"></i></p>
