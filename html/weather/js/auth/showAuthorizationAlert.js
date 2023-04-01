@@ -1,7 +1,22 @@
+// ***********2****Cookies****************************
+import { getToken, removeToken } from './auth.js';
+
+// ***************END*********************************
 export function showAuthorizationAlert() {
-  const unauthorizedRedirect = sessionStorage.getItem('unauthorizedRedirect');
+  // ****************1*****TOKEN*****************************
+  // const unauthorizedRedirect = sessionStorage.getItem('unauthorizedRedirect');
+  // ***************END*********************************
+  // **********2*****Cookies****************************
+  const unauthorizedRedirect = getToken('unauthorizedRedirect');
+  // ***************END*********************************
   if (unauthorizedRedirect) {
-    sessionStorage.removeItem('unauthorizedRedirect');
+    // ****************1*****TOKEN*****************************
+    // sessionStorage.removeItem('unauthorizedRedirect');
+    // ***************END*********************************
+
+    // **********2*****Cookies****************************
+    removeToken('unauthorizedRedirect');
+    // ***************END*********************************
     alert('Please complete Authorization!');
   }
 }

@@ -111,7 +111,7 @@
 </nav>
 
   
-  <h1><i class="wi wi-horizon-alt"></i>Прогноз погоди</h1>
+  <h1 class="modalTitle"><i class="wi wi-horizon-alt"></i>Прогноз погоди</h1>
   <div>
     <div class="inputSearch"><input id="city-input" class="CitySearch" type="text" placeholder="Введіть місто">
     <button class="addToSelected">
@@ -142,7 +142,8 @@
   <!-- Модальне вікно -->
 <div id="myModal" class="modal">
   <div class="modal-content">
-    <span class="closeWeatherModal">&times;</span>
+    <button class="closeWeatherModal" id="button-x2"><div id="x-icon"></div></button>
+    <!-- <span class="closeWeatherModal">&times;</span> -->
     <div id="modalWeatherInfo">
       <!-- Тут буде відображатися детальна інформація про погоду -->
     </div>

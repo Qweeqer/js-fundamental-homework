@@ -1,7 +1,24 @@
+// ********2*******Cookies****************************
+import { getToken, setToken } from './auth.js';
+
+// ***************END*********************************
 export async function checkAuthorization() {
-  const authToken = sessionStorage.getItem('authToken');
+
+  // ****************1*****TOKEN*****************************
+  // const authToken = sessionStorage.getItem('authToken');
+  // ***************END*********************************
+
+  // ******2*********Cookies****************************
+  const authToken = getToken();
+  // ***************END*********************************
   if (!authToken) {
-    sessionStorage.setItem('unauthorizedRedirect', 'true');
+    // ****************1*****TOKEN*****************************
+    // sessionStorage.setItem('unauthorizedRedirect', 'true');
+    // ***************END*********************************
+    
+    // *****2**********Cookies****************************
+    setToken('unauthorizedRedirect', 'true');
+    // ***************END*********************************
     window.location.href = 'weather.html';
   }
 }

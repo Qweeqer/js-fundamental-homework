@@ -31,7 +31,7 @@ if (registerForm) {
 
       setTimeout(async () => {
         const user = await getCurrent();
-        console.log('user', user);
+        // console.log('user', user);
         if (user) {
           // const userContainer = document.getElementById('UserInfo');
           // userContainer.innerHTML = `<p>Ім’я користувача: ${user.name}</p> <p>Email: ${user.email}</p>`;

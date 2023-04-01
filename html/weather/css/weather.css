@@ -52,7 +52,6 @@ button {
   margin: 0 auto;
   padding: 0;
   max-width: 95%;
-  margin-top: 10px;
   height: 150px;
   gap: 2%;
 }
@@ -114,18 +113,17 @@ img {
   margin-top: 10px;
   font-size: 1.25em;
 }
-.labelCheckBox{
+.labelCheckBox {
   font-size: 50px;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  align-content: center;
 }
-.themCheckBox{
-      margin-left: 20px;
-    width: 25px;
-    height: 25px;
-  
+.themCheckBox {
+  margin-left: 20px;
+  width: 25px;
+  height: 25px;
 }
 .DateWrapper {
   font-size: 1.25em;
@@ -247,10 +245,14 @@ body.dark-theme {
   color: #f0f0f0;
 }
 
-body.dark-theme button {
+body.dark-theme button,
+body.dark-theme #UserInfo {
   background-color: #1c1c1c;
   color: #f0f0f0;
   border: 1px solid #f0f0f0;
+}
+body.dark-theme #UserInfo > p {
+  margin: 5px;
 }
 body.dark-theme button.addToSelected {
   background-color: unset;
@@ -459,9 +461,9 @@ div#map {
     justify-content: center;
     align-items: center;
   }
-nav.buttons{
-  font-size: 45px;
-}
+  nav.buttons {
+    font-size: 45px;
+  }
   #UserInfo {
     width: 100%;
     border-top: 4px solid white;
@@ -469,6 +471,57 @@ nav.buttons{
   }
   .IconStyled {
     font-size: 3rem;
+  }
+  .form-class {
+    width: 95%;
+    height: auto;
+    font-size: 45px;
+  }
+  .form-class form {
+    width: 80%;
+  }
+  #x-icon {
+    height: 70px;
+    width: 70px;
+  }
+  .mainCheckBox {
+    display: flex;
+    gap: 5%;
+    align-items: flex-start;
+  }
+  .mainCheckBox input[type='checkbox'] {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    margin-bottom: 30px;
+  }
+  .error-message {
+    color: rgb(255, 9, 9);
+  }
+  .cityList {
+    font-size: 50px;
+    margin-top: 70px;
+    max-width: 100%;
+    display: flex;
+  }
+  .cityList > li > div.selectedList {
+    gap: 30px;
+  }
+  .deleteCityButton {
+    font-size: 50px;
+    border-radius: 10px;
+  }
+  .hourly-forecast > .hourly-forecast-item > p {
+    display: block;
+  }
+  #modalWeatherInfo {
+    font-size: 50px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+  }
+  #modalWeatherInfo > h1.modalTitle {
+    margin: 35px;
   }
 }
 @media screen and (min-device-width: 768px) {
@@ -516,7 +569,7 @@ nav.buttons{
     justify-content: center;
   }
   .form-class {
-    width: 25em;
+    width: 32em;
   }
   .WeatherWrapper {
     /* flex: 0 0 calc(33.3333% - 20px); */
