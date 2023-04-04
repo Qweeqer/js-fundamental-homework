@@ -5,9 +5,9 @@ import '../modal/profileModal.js';
 // знайти елемент з id "map"
 const mapElement = document.getElementById('map');
 
-document.getElementById('home-button').addEventListener('click', () => {
-  window.location.href = './weather.html';
-});
+// document.getElementById('home-button').addEventListener('click', () => {
+//   window.location.href = './weather.html';
+// });
 
 document.getElementById('logout-button').addEventListener('click', handleLogout);
 

@@ -2,168 +2,184 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico" />
     <link rel="stylesheet" href="./css/weather.css" />
     <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-    crossorigin=""
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
     />
-    <link rel="stylesheet" href="./css/weather-icons-wind.min.css">
-    <link rel="stylesheet" href="./css/weather-icons.css">
-    <link rel="stylesheet" href="./css/profile.css">
+    <link rel="stylesheet" href="./css/weather-icons-wind.min.css" />
+    <link rel="stylesheet" href="./css/weather-icons.css" />
+    <link rel="stylesheet" href="./css/profile.css" />
     <script type="module" src="./js/auth/checkAuthorization.js"></script>
-<script
-  src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-  integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-  crossorigin=""
-></script>
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
     <title>Weather App</title>
   </head>
   <body>
     <header>
-        <!-- ****************************************************** -->
-        <div id="dark"></div>
-<div id="Home" style="display: none;">
-    <div class="form-class">
-      <button id="button-x1"><div id="x-icon"></div></button>
-      <h2>Home</h2>
-    </div>
-  </div>
-<div id="Selected" style="display: none;">
-    <div class="form-class">
-      <button id="button-x2"><div id="x-icon"></div></button>
-      <h2>Selected</h2>
-    </div>
-  </div>
-  <div id="Profile" style="display: none;">
-    <div class="form-class">
-      <button id="button-x1"><div id="x-icon"></div></button>
-      <h2>Profile</h2>
-    </div>
-  </div>
-<div id="profile-modal" class="modal">
-  <div class="modal-content">
-    <span id="close-profile-modal" class="close">&times;</span>
-    <h2>Інформація про користувача</h2>
-    <div id="user-info">
-      <!-- Інформація про користувача буде додана тут -->
-    </div>
-  </div>
-</div>
-  <div id="Logout" style="display: none;">
-    <div class="form-class">
-      <button id="button-x2"><div id="x-icon"></div></button>
-      <h2>Logout</h2>
-      
-    </div>
-  </div>
+      <!-- ****************************************************** -->
+      <div id="dark"></div>
+      <div id="Home" style="display: none">
+        <div class="form-class">
+          <button id="button-x1"><div id="x-icon"></div></button>
+          <h2>Home</h2>
+        </div>
+      </div>
+      <!-- <div id="homeModal" style="display: none">
+        <div id="modal-content">
+          <h1>
+            Cтворення веб-додатку, що надає прогноз погоди на сьогодні та на наступні 3 дні з
+            використанням безкоштовного API.
+          </h1>
+        </div>
+      </div> -->
 
-  <nav class="buttons">
-  <div id='userInfoWrapper'>
-    <div id="menu-icon" class="closed">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div id="UserInfo"></div>
-</div>
-    <button id="home-button">Home
-        <svg style="display: none">
+      <div id="Selected" style="display: none">
+        <div class="form-class">
+          <button id="button-x2"><div id="x-icon"></div></button>
+          <h2>Selected</h2>
+        </div>
+      </div>
+      <div id="Profile" style="display: none">
+        <div class="form-class">
+          <button id="button-x3"><div id="x-icon"></div></button>
+          <h2>Profile</h2>
+        </div>
+      </div>
+      <div id="profile-modal" class="modal">
+        <div class="modal-content">
+          <span id="close-profile-modal" class="close">&times;</span>
+          <h2>Інформація про користувача</h2>
+          <div id="user-info">
+            <!-- Інформація про користувача буде додана тут -->
+          </div>
+        </div>
+      </div>
+      <div id="Logout" style="display: none">
+        <div class="form-class">
+          <button id="button-x4"><div id="x-icon"></div></button>
+          <h2>Logout</h2>
+        </div>
+      </div>
+
+      <nav class="buttons">
+        <div id="userInfoWrapper">
+          <div id="menu-icon" class="closed">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div id="UserInfo"></div>
+        </div>
+        <button id="home-button">
+          Home
+          <svg style="display: none">
             <symbol id="icon-home" viewBox="0 0 32 32">
-<path d="M32 18.451l-16-12.42-16 12.42v-5.064l16-12.42 16 12.42zM28 18v12h-8v-8h-8v8h-8v-12l12-9z"></path>
-</symbol>
-        </svg>
-        <svg class="icon-heart">
-  <use xlink:href="#icon-home"></use>
-</svg>
-    </button>
-    <button id="selected-button">
-        Selected
-  <svg style="display:none">
-  <symbol id="icon-heart" viewBox="0 0 32 32">
-    <path d="M29.193 5.265c-3.629-3.596-9.432-3.671-13.191-0.288-3.76-3.383-9.561-3.308-13.192 0.288-3.741 3.704-3.741 9.709 0 13.415 1.069 1.059 11.053 10.941 11.053 10.941 1.183 1.172 3.096 1.172 4.278 0 0 0 10.932-10.822 11.053-10.941 3.742-3.706 3.742-9.711-0.001-13.415zM27.768 17.268l-11.053 10.941c-0.393 0.391-1.034 0.391-1.425 0l-11.053-10.941c-2.95-2.92-2.95-7.671 0-10.591 2.844-2.815 7.416-2.914 10.409-0.222l1.356 1.22 1.355-1.22c2.994-2.692 7.566-2.594 10.41 0.222 2.95 2.919 2.95 7.67 0.001 10.591zM9.253 7.501c0.277 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5h-0.001c-1.794 0-3.249 1.455-3.249 3.249v0.001c0 0.276-0.224 0.5-0.5 0.5s-0.5-0.224-0.5-0.5v0c0-2.346 1.901-4.247 4.246-4.249 0.002 0 0.002-0.001 0.004-0.001z"></path>
-  </symbol>
-</svg>
-<svg class="icon-heart">
-  <use xlink:href="#icon-heart"></use>
-</svg>
+              <path
+                d="M32 18.451l-16-12.42-16 12.42v-5.064l16-12.42 16 12.42zM28 18v12h-8v-8h-8v8h-8v-12l12-9z"
+              ></path>
+            </symbol>
+          </svg>
+          <svg class="icon-heart">
+            <use xlink:href="#icon-home"></use>
+          </svg>
+        </button>
+        <button id="selected-button">
+          Selected
+          <svg style="display: none">
+            <symbol id="icon-heart" viewBox="0 0 32 32">
+              <path
+                d="M29.193 5.265c-3.629-3.596-9.432-3.671-13.191-0.288-3.76-3.383-9.561-3.308-13.192 0.288-3.741 3.704-3.741 9.709 0 13.415 1.069 1.059 11.053 10.941 11.053 10.941 1.183 1.172 3.096 1.172 4.278 0 0 0 10.932-10.822 11.053-10.941 3.742-3.706 3.742-9.711-0.001-13.415zM27.768 17.268l-11.053 10.941c-0.393 0.391-1.034 0.391-1.425 0l-11.053-10.941c-2.95-2.92-2.95-7.671 0-10.591 2.844-2.815 7.416-2.914 10.409-0.222l1.356 1.22 1.355-1.22c2.994-2.692 7.566-2.594 10.41 0.222 2.95 2.919 2.95 7.67 0.001 10.591zM9.253 7.501c0.277 0 0.5 0.224 0.5 0.5s-0.224 0.5-0.5 0.5h-0.001c-1.794 0-3.249 1.455-3.249 3.249v0.001c0 0.276-0.224 0.5-0.5 0.5s-0.5-0.224-0.5-0.5v0c0-2.346 1.901-4.247 4.246-4.249 0.002 0 0.002-0.001 0.004-0.001z"
+              ></path>
+            </symbol>
+          </svg>
+          <svg class="icon-heart">
+            <use xlink:href="#icon-heart"></use>
+          </svg>
+        </button>
 
-</button>
-
-    <button id="profile-button">Profile
-        <svg style="display:none">
-        <symbol id="icon-user" viewBox="0 0 32 32">
-<path d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z"></path>
-</symbol>
-</svg>
-<svg class="icon-heart">
-  <use xlink:href="#icon-user"></use>
-</svg>
-    </button>
-    <button id="logout-button">Logout
-        <svg style="display:none">
+        <button id="profile-button">
+          Profile
+          <svg style="display: none">
+            <symbol id="icon-user" viewBox="0 0 32 32">
+              <path
+                d="M18 22.082v-1.649c2.203-1.241 4-4.337 4-7.432 0-4.971 0-9-6-9s-6 4.029-6 9c0 3.096 1.797 6.191 4 7.432v1.649c-6.784 0.555-12 3.888-12 7.918h28c0-4.030-5.216-7.364-12-7.918z"
+              ></path>
+            </symbol>
+          </svg>
+          <svg class="icon-heart">
+            <use xlink:href="#icon-user"></use>
+          </svg>
+        </button>
+        <button id="logout-button">
+          Logout
+          <svg style="display: none">
             <symbol id="icon-exit" viewBox="0 0 32 32">
-<path d="M24 20v-4h-10v-4h10v-4l6 6zM22 18v8h-10v6l-12-6v-26h22v10h-2v-8h-16l8 4v18h8v-6z"></path>
-</symbol>
-        </svg>
-        <svg class="icon-heart">
-  <use xlink:href="#icon-exit"></use>
-</svg>
-</button>
+              <path
+                d="M24 20v-4h-10v-4h10v-4l6 6zM22 18v8h-10v6l-12-6v-26h22v10h-2v-8h-16l8 4v18h8v-6z"
+              ></path>
+            </symbol>
+          </svg>
+          <svg class="icon-heart">
+            <use xlink:href="#icon-exit"></use>
+          </svg>
+        </button>
+      </nav>
+    </header>
 
-</nav>
-
-
-  
-  <h1 class="modalTitle"><i class="wi wi-horizon-alt"></i>Прогноз погоди</h1>
-  <div>
-    <div class="inputSearch"><input id="city-input" class="CitySearch" type="text" placeholder="Введіть місто">
-    <button class="addToSelected">
-        <svg class="icon-heart">
-  <use xlink:href="#icon-heart"></use>
-</svg>
-    </button>
-</div>
-    <label class="labelCheckBox">
-      Темна тема:
-      <input class='themCheckBox' type="checkbox" id="theme-switch" />
-    </label>
-  </div>
-
-  <div class="buttonWraper">
-    <button id="today-button" class="button">Погода на сьогодні</button>
-    <button id="three-day-button" class="button">Погода на 3 дні</button>
-    <button id="seven-day-button" class="button">Погода на 5 днів</button>
-  </div>
-
-  <ul id="weather-list" class="weather-wrapper"></ul>
-  <div id="map" style="width: 100%; height: 400px;"></div>
-
-  <!-- <div id="user-info" ></div> -->
-  
-
-<!-- *********************************************************************** -->
-  <!-- Модальне вікно -->
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <button class="closeWeatherModal" id="button-x2"><div id="x-icon"></div></button>
-    <!-- <span class="closeWeatherModal">&times;</span> -->
-    <div id="modalWeatherInfo">
-      <!-- Тут буде відображатися детальна інформація про погоду -->
+    <h1 class="modalTitle"><i class="wi wi-horizon-alt"></i>Прогноз погоди</h1>
+    <div>
+      <div class="inputSearch">
+        <input id="city-input" class="CitySearch" type="text" placeholder="Введіть місто" />
+        <button class="addToSelected">
+          <svg class="icon-heart">
+            <use xlink:href="#icon-heart"></use>
+          </svg>
+        </button>
+      </div>
+      <label class="labelCheckBox">
+        Темна тема:
+        <input class="themCheckBox" type="checkbox" id="theme-switch" />
+      </label>
     </div>
-  </div>
-</div>
 
-<!-- ********************************************************************************** -->
-<!-- <script type="module" src="./js/auth/checkAuthorization.js"></script> -->
+    <div class="buttonWraper">
+      <button id="today-button" class="button">Погода на сьогодні</button>
+      <button id="three-day-button" class="button">Погода на 3 дні</button>
+      <button id="seven-day-button" class="button">Погода на 5 днів</button>
+    </div>
+
+    <ul id="weather-list" class="weather-wrapper"></ul>
+    <div id="map" style="width: 100%; height: 400px"></div>
+
+    <!-- <div id="user-info" ></div> -->
+
+    <!-- *********************************************************************** -->
+    <!-- Модальне вікно -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <button class="closeWeatherModal" id="button-x5"><div id="x-icon"></div></button>
+        <!-- <span class="closeWeatherModal">&times;</span> -->
+        <div id="modalWeatherInfo">
+          <!-- Тут буде відображатися детальна інформація про погоду -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ********************************************************************************** -->
+    <!-- <script type="module" src="./js/auth/checkAuthorization.js"></script> -->
     <script type="module" src="./js/profile/hamburgerMenu.js"></script>
     <script type="module" src="./js/weather/weather.js"></script>
     <script type="module" src="./js/auth/auth.js"></script>
-<script type="module" src="./js/profile/profile.js"></script>
-
+    <script type="module" src="./js/profile/profile.js"></script>
+    <script type="module" src="./js/modal/homeModal.js"></script>
   </body>
 </html>
