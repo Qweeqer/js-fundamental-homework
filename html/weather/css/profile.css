@@ -55,6 +55,7 @@ body.modal-open .addToSelected {
   align-items: baseline;
   justify-content: center;
   align-content: center;
+  color: #fefefe;
 }
 .themCheckBox {
   margin-left: 20px;
@@ -67,13 +68,13 @@ body.modal-open .addToSelected {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background-image: url(https://source.unsplash.com/1600x900/?nature,landscape);
+  /* background-image: url(https://source.unsplash.com/1600x900/?nature,landscape);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
 }
 
 .cityList li {
-  background-color: rgb(27 86 232 / 80%);
+  background-color: var(--text-pop-up);
   color: white;
   border: unset;
   margin-top: 20px;
@@ -93,7 +94,7 @@ body.modal-open .addToSelected {
 }
 
 .cityList button {
-  background-color: #ff4d4d;
+  background-color: #2196f3;
   color: white;
   padding: 8px 16px;
   border: none;
@@ -106,7 +107,7 @@ body.modal-open .addToSelected {
 }
 
 .cityList p {
-  margin: 0;
+  margin: 5px;
 }
 
 .cityList i {
@@ -114,7 +115,7 @@ body.modal-open .addToSelected {
 }
 
 .cityList button:hover {
-  background-color: #ff1a1a;
+  background-color: #ffb41a;
 }
 #Selected {
   position: absolute;
@@ -123,6 +124,13 @@ body.modal-open .addToSelected {
   height: 100%;
   background-image: url('https://source.unsplash.com/1600x900/?nature,landscape');
   background-size: cover;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 138, 251, 0.621),
+    rgba(112, 150, 232, 0.07),
+    rgba(51, 0, 255, 0)
+  );
+  backdrop-filter: blur(5px);
 }
 #Selected #button-x2 {
   padding: 8px;
@@ -156,17 +164,29 @@ body.modal-open .addToSelected {
   color: white;
   font-size: 30px;
   box-sizing: border-box;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 138, 251, 0.621),
+    rgba(112, 150, 232, 0.07),
+    rgba(51, 0, 255, 0)
+  );
+  backdrop-filter: blur(5px);
 }
 div#modalWeatherInfo > p {
   padding: 15px;
 }
-#modalWeatherInfo > p:hover,
+#modalWeatherInfo > h1,
+#modalWeatherInfo > p {
+  margin: 20px;
+  /* margin-bottom: 10px; */
+}
+/* #modalWeatherInfo > p:hover,
 #modalWeatherInfo > p:focus,
 #modalWeatherInfo > div:hover,
 #modalWeatherInfo > div:focus {
   color: yellow;
   background-color: #5091ff8f;
-}
+} */
 #user-info {
   border: 5px inset white;
   background-color: #9a8d8d82;
@@ -182,7 +202,7 @@ div#modalWeatherInfo > p {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: #ffb41a;
   text-decoration: none;
   cursor: pointer;
 }
@@ -250,3 +270,5 @@ div#modalWeatherInfo > p {
     width: 100%;
   }
 }
+
+

@@ -29,6 +29,7 @@ const showWeatherDetailsInModal = async (latitude, longitude) => {
   const humidity = currentWeather.humidity + '%';
   const windSpeed = currentWeather.wind_speed + ' м/с';
   const uvi = currentWeather.uvi;
+  const visibility = currentWeather.visibility / 1000 + ' км'; // TODO
   const skyStatus = currentWeather.weather[0].description;
   // console.log('currenWeather', currentWeather);
   //для отримання данних про місто та дату
@@ -59,6 +60,7 @@ const showWeatherDetailsInModal = async (latitude, longitude) => {
     <p><i class="wi wi-strong-wind"></i>  Швидкість вітру: ${windSpeed}</p>
     <p><i class="wi wi-hot"></i>  Індекс УФ-випромінювання: ${uvi}</p>
     <p><i class="wi wi-cloudy"></i>  Стан неба: ${skyStatus}</p>
+    <p>Видимість: ${visibility} <i class="wi wi-fog"></i></p>
     <p><i class="wi wi-horizon-alt"></i>  Схід сонця: ${sunriseHours}:${sunriseMinutes}</p>
     <p><i class="wi wi-horizon"></i>  Захід сонця: ${sunsetHours}:${sunsetMinutes}</p>
     <div class="hourly-forecast">
@@ -114,7 +116,6 @@ const displayHourlyForecast = hourlyWeather => {
     const skyStatus = hour.weather[0].description;
     const precipitationProbability = (hour.pop * 100).toFixed(0) + '%';
     const pressure = hour.pressure + ' гПа';
-    const visibility = hour.visibility / 1000 + ' км';
 
     hourlyForecastHtml += `
       <div class="hourly-forecast-item">
@@ -122,9 +123,7 @@ const displayHourlyForecast = hourlyWeather => {
         <p><i class="wi wi-thermometer"></i> Температура:<br> ${temperature}</p>
         <p>Стан неба: <br> ${skyStatus}<i class="wi wi-cloudy"></i></p>
         <p>Ймовірність опадів:<br> ${precipitationProbability} <i class="wi wi-raindrops"></i></p>
-        <p>Тиск:<br>${pressure} <i class="wi wi-barometer"></i></p>
-        <p>Видимість: ${visibility} <i class="wi wi-fog"></i></p>
-
+        <p>Тиск:<br>${pressure} <i class="wi wi-barometer"></i></p>      
       </div>
     `;
   });
