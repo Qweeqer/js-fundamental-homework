@@ -12,7 +12,6 @@
     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
     crossorigin=""
     />
-    <!-- <link rel="stylesheet" href="./css/weather-icons.min.css"> -->
     <link rel="stylesheet" href="./css/weather-icons-wind.min.css">
     <link rel="stylesheet" href="./css/weather-icons.css">
     <link rel="stylesheet" href="./css/profile.css">
@@ -22,7 +21,7 @@
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
   crossorigin=""
 ></script>
-    <title>My Weather App</title>
+    <title>Weather App</title>
   </head>
   <body>
     <header>
@@ -64,6 +63,14 @@
   </div>
 
   <nav class="buttons">
+  <div id='userInfoWrapper'>
+    <div id="menu-icon" class="closed">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div id="UserInfo"></div>
+</div>
     <button id="home-button">Home
         <svg style="display: none">
             <symbol id="icon-home" viewBox="0 0 32 32">
@@ -107,8 +114,9 @@
   <use xlink:href="#icon-exit"></use>
 </svg>
 </button>
-<div id="UserInfo" style="display: none;"></div>
+
 </nav>
+
 
   
   <h1 class="modalTitle"><i class="wi wi-horizon-alt"></i>Прогноз погоди</h1>
@@ -135,7 +143,7 @@
   <ul id="weather-list" class="weather-wrapper"></ul>
   <div id="map" style="width: 100%; height: 400px;"></div>
 
-  <div id="user-info" style="display: none;"></div>
+  <!-- <div id="user-info" ></div> -->
   
 
 <!-- *********************************************************************** -->
@@ -152,11 +160,10 @@
 
 <!-- ********************************************************************************** -->
 <!-- <script type="module" src="./js/auth/checkAuthorization.js"></script> -->
+    <script type="module" src="./js/profile/hamburgerMenu.js"></script>
     <script type="module" src="./js/weather/weather.js"></script>
     <script type="module" src="./js/auth/auth.js"></script>
 <script type="module" src="./js/profile/profile.js"></script>
-
-    <!-- <script type='module' src="./authAPI.js"></script> -->
 
   </body>
 </html>

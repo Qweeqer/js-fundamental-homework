@@ -67,6 +67,7 @@ selectedButton.addEventListener('click', async () => {
     return;
   }
   mapElement.style.zIndex = -1;
+  selectedModal.style.zIndex = 1;
   const cityList = document.createElement('ul');
   cityList.classList.add('cityList');
   document.body.classList.add('modal-open');
@@ -125,6 +126,7 @@ selectedButton.addEventListener('click', async () => {
     selectedModal.style.display = 'none';
     darkOverlay.style.display = 'none';
     mapElement.style.zIndex = 0;
+    selectedModal.style.zIndex = 0;
     document.body.classList.remove('modal-open');
   });
 
