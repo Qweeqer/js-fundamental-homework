@@ -24,7 +24,6 @@ nav.buttons > button {
 .addToSelected {
   position: relative;
   right: -5%;
-  bottom: 4px;
   padding: 0px;
   background-color: unset;
   border: unset;
@@ -150,10 +149,11 @@ body.modal-open .addToSelected {
   background-color: var(--text-pop-up);
   color: #fefefe;
   font-size: 20px;
-  /* height: auto; */
+  height: 100%;
 }
 #Home > h1 {
   margin: 20px;
+  padding: 35px;
 }
 /* Профіль модал */
 .modal {

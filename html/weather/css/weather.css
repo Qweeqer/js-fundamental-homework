@@ -98,7 +98,6 @@ img {
   outline: none;
   border-radius: 20px;
   font-size: 16px;
-  margin-bottom: 10px;
   background-color: white;
   background-position: 10px 10px;
   padding: 12px 20px 12px 20px;
@@ -702,9 +701,9 @@ div#map {
     font-size: 30px;
   }
   #city-input {
-    width: 30%;
-    height: unset;
-    font-size: 20px;
+    width: 35%;
+    height: auto;
+    font-size: 30px;
   }
   button.addToSelected {
     right: -5%;
