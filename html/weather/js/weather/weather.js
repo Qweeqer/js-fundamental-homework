@@ -99,7 +99,10 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
     const windStr = weather.wind.speed + 'м/с';
     const iconUrl = `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`;
     const cityName = cityInput.value;
-
+    //Ймовірність опадів///
+    const precipitationProbability = Math.round(weather.main.humidity);
+    //////////////////////
+    
     const weatherItem = document.createElement('li');
     weatherItem.classList.add('WeatherWrapper');
     // console.log('numDays', numDays);
@@ -134,6 +137,7 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
   <p class="DegStyled">Температура: ${tempStr}</p>
   <p>Вологість: ${humidityStr}</p>
   <p class="WindStyled">Швидкість вітру: ${windStr} <i class="wi wi-strong-wind"></i></p>
+  <p>Ймовірність опадів: ${precipitationProbability}% <i class="wi wi-raindrops"></i></p>
   ${numDays === 1 ? `<p>Тиск: ${weather.main.pressure} <i class="wi wi-barometer"></i></p>` : ''}
   ${numDays === 1 ? `<p>Видимість: ${weather.main.visibility} <i class="wi wi-fog"></i></p>` : ''}
   ${
@@ -146,7 +150,9 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
   }
   ${
     numDays === 1
-      ? `<p>Ймовірність опадів: ${weather.weather[0].precipitation} <i class="wi wi-raindrops"></i></p>`
+      ? `<p>Ймовірність опадів: ${Math.round(
+          precipitationProbability
+        )}% <i class="wi wi-raindrops"></i></p>`
       : ''
   }
 `;
