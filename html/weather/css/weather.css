@@ -573,8 +573,16 @@ div#map {
     top: 14px;
   }
 
-  #menu-icon span:nth-child(4) {
+  /* #menu-icon span:nth-child(4) {
     top: 16px;
+  } */
+  #menu-icon span:nth-child(3) {
+    top: 28px;
+  }
+
+  #menu-icon.closed span:nth-child(3) {
+    top: 14px;
+    transform: rotate(0deg);
   }
 
   #menu-icon.open span:nth-child(1) {
@@ -601,12 +609,14 @@ div#map {
   }
 
   #menu-icon.closed span:nth-child(2) {
-    opacity: 0;
+    transform: rotate(45deg);
+    top: 7px;
   }
 
   #menu-icon.closed span:last-child {
     transform: rotate(-45deg) translate(5px, -5px);
   }
+
   /* ///Home///////////// */
   #Home {
     background-color: var(--text-pop-up);
@@ -697,7 +707,7 @@ div#map {
     font-size: 20px;
   }
   button.addToSelected {
-    right: 45px;
+    right: -5%;
   }
   .addToSelected > svg.icon-heart {
     width: 16px;
