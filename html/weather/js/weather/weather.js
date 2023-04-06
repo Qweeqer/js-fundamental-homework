@@ -92,10 +92,10 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
     const iconUrl = `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`;
     const cityName = cityInput.value;
     //Ймовірність опадів///
-    const precipitationProbability = (weather.weather[0].precipitation);
+    const precipitationProbability = weather.weather[0].precipitation;
     const precipitationProbabilityMoreDays = Math.round(parseFloat(weather.pop) * 100);
     //////////////////////
-    console.log('weather', weather);
+    // console.log('weather', weather);
     const weatherItem = document.createElement('li');
     weatherItem.classList.add('WeatherWrapper');
     // console.log('numDays', numDays);
@@ -143,9 +143,7 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
   }
   ${
     numDays === 1
-      ? `<p>Ймовірність опадів: ${(
-          precipitationProbability
-        )} <i class="wi wi-raindrops"></i></p>`
+      ? `<p>Ймовірність опадів: ${precipitationProbability} <i class="wi wi-raindrops"></i></p>`
       : ''
   }
 `;
