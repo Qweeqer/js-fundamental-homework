@@ -18,6 +18,7 @@ export function showAuthorizationAlert() {
     removeToken('unauthorizedRedirect');
     // ***************END*********************************
     alert('Please complete Authorization!');
+    window.location.href = 'weather.html';
   }
 }
 // Викликати showAuthorizationAlert після завантаження сторінки

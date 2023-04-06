@@ -10,17 +10,9 @@ import {
 } from './weatherVariables.js';
 import '../modal/modalWeather.js';
 import '../them/themSwitch.js';
-import { getWeatherData } from './getWeatherData.js';
+// import { getWeatherData } from './getWeatherData.js';
 import { clearWeather } from './clearWeather.js';
-import {
-  mapElement,
-  currentMarker,
-  initMap,
-  addMarkerToMap,
-  updateMapCenter,
-  map,
-  fetchCityByGeolocation,
-} from '../map/mapService.js';
+import { addMarkerToMap, updateMapCenter, map, fetchCityByGeolocation } from '../map/mapService.js';
 
 // ********************************************************************************************
 export const fetchWeatherData = async (numDays, city = cityInput.value) => {
@@ -100,9 +92,10 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
     const iconUrl = `https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`;
     const cityName = cityInput.value;
     //Ймовірність опадів///
-    const precipitationProbability = Math.round(weather.main.humidity);
+    const precipitationProbability = weather.weather[0].precipitation;
+    const precipitationProbabilityMoreDays = Math.round(parseFloat(weather.pop) * 100);
     //////////////////////
-    
+    // console.log('weather', weather);
     const weatherItem = document.createElement('li');
     weatherItem.classList.add('WeatherWrapper');
     // console.log('numDays', numDays);
@@ -137,7 +130,7 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
   <p class="DegStyled">Температура: ${tempStr}</p>
   <p>Вологість: ${humidityStr}</p>
   <p class="WindStyled">Швидкість вітру: ${windStr} <i class="wi wi-strong-wind"></i></p>
-  <p>Ймовірність опадів: ${precipitationProbability}% <i class="wi wi-raindrops"></i></p>
+  <p>Ймовірність опадів: ${precipitationProbabilityMoreDays}% <i class="wi wi-raindrops"></i></p>
   ${numDays === 1 ? `<p>Тиск: ${weather.main.pressure} <i class="wi wi-barometer"></i></p>` : ''}
   ${numDays === 1 ? `<p>Видимість: ${weather.main.visibility} <i class="wi wi-fog"></i></p>` : ''}
   ${
@@ -150,9 +143,7 @@ export const fetchWeatherData = async (numDays, city = cityInput.value) => {
   }
   ${
     numDays === 1
-      ? `<p>Ймовірність опадів: ${Math.round(
-          precipitationProbability
-        )}% <i class="wi wi-raindrops"></i></p>`
+      ? `<p>Ймовірність опадів: ${precipitationProbability} <i class="wi wi-raindrops"></i></p>`
       : ''
   }
 `;
