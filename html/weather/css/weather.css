@@ -707,7 +707,7 @@ div#map {
     font-size: 20px;
   }
   button.addToSelected {
-    right: 45px;
+    right: -5%;
   }
   .addToSelected > svg.icon-heart {
     width: 16px;
