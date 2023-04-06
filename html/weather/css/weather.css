@@ -26,6 +26,11 @@ body {
 h1 {
   font-size: 50px;
   color: white;
+      background-color: darkcyan;
+    /* margin: 0; */
+    border: none;
+    margin-top: 0;
+    padding: 15px;
 }
 h1:hover {
   color: yellow;
