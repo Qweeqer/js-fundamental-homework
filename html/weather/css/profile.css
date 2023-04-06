@@ -23,31 +23,40 @@ nav.buttons > button {
 }
 .addToSelected {
   position: relative;
-  right: 70px;
+  right: -5%;
   bottom: 4px;
   padding: 0px;
   background-color: unset;
   border: unset;
-  box-shadow: none;
+  display: flex;
+  border-radius: 50px;
+  padding: 15px;
+  background-color: darkcyan;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(0deg, darkcyan, rgb(13, 141, 141));
+  transition: all 0.3s ease-in-out;
 }
 body.modal-open .addToSelected,
 body.modal-open .addToSelected {
   display: none;
 }
 .addToSelected:hover {
-  background-color: unset;
+  background-color: var(--text-pop-up);
   border: unset;
-  box-shadow: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transform: scale(1.5);
 }
 .addToSelected > .icon-heart {
   width: 50px;
   height: 50px;
-  fill: #1d1d04;
+  fill: #ffffff;
   transition: all 0.3s ease-in-out;
 }
-.addToSelected > .icon-heart:hover {
+.addToSelected:hover > .icon-heart {
   fill: rgb(255, 255, 3);
-  transform: scale(1.5);
+  /* transform: scale(1.1); */
 }
 .labelCheckBox {
   margin-bottom: 20px;
