@@ -44,7 +44,7 @@ body.modal-open .addToSelected {
 .addToSelected:hover {
   background-color: var(--text-pop-up);
   border: unset;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   transform: scale(1.5);
 }
 .addToSelected > .icon-heart {
@@ -132,14 +132,14 @@ body.modal-open .addToSelected {
   display: flex;
   width: 100%;
   /* height: 100%; */
-  background-image: url('https://source.unsplash.com/1600x900/?nature,landscape');
+  /* background-image: url('https://source.unsplash.com/1600x900/?nature,landscape');
   background-size: cover;
   background: linear-gradient(
     135deg,
     rgba(0, 138, 251, 0.621),
     rgba(112, 150, 232, 0.07),
     rgba(51, 0, 255, 0)
-  );
+  ); */
   backdrop-filter: blur(5px);
 }
 #Selected #button-x2 {
@@ -151,9 +151,17 @@ body.modal-open .addToSelected {
   font-size: 20px;
   height: 100%;
 }
-#Home > h1 {
-  margin: 20px;
-  padding: 35px;
+#Home > h1,
+#Home > p {
+  margin: 0;
+  padding: 45px;
+  background-color: var(--text-pop-up);
+}
+.mainHomeList,
+.homeList {
+  margin: 0;
+  background-color: var(--text-pop-up);
+  color: #ffffff;
 }
 /* Профіль модал */
 .modal {
